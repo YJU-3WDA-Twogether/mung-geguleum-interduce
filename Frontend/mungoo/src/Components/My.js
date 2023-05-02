@@ -1,6 +1,8 @@
 import React from 'react';
 import MyPage from "../pages/MyPage";
 import MyLog from "../pages/MyLog";
+import MyPostView from "../pages/MyPostView";
+import MyModify from "../pages/MyModify";
 function My({ MyName }) {
 
     let page;
@@ -9,8 +11,14 @@ function My({ MyName }) {
         case 'My':
             page = <MyPage />;
             break;
-        case 'Mylog':
+        case 'MyLog':
             page = <MyLog />;
+            break;
+        case 'MyPostView':
+            page = <MyPostView />;
+            break;
+        case 'MyModify':
+            page = <MyModify />;
             break;
         default:
             page = <MyPage />;

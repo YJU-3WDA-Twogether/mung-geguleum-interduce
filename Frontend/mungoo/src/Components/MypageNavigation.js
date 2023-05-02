@@ -9,13 +9,13 @@ function MypageNavigation({ onSelectMyPage }) {
                     <button onClick={() => onSelectMyPage('My')}>내활동</button>
                 </li>
                 <li>
-                    <button onClick={() => onSelectMyPage('Mylog')}>내 기록</button>
+                    <button onClick={() => onSelectMyPage('MyLog')}>내 기록</button>
                 </li>
                 <li>
-                    <button onClick={() => onSelectMyPage('Mypost')}>게시글 조회</button>
+                    <button onClick={() => onSelectMyPage('MyPostView')}>게시글 조회</button>
                 </li>
                 <li>
-                    <button onClick={() => onSelectMyPage('Myud')}>정보 수정</button>
+                    <button onClick={() => onSelectMyPage('MyModify')}>정보 수정</button>
                 </li>
 
             </ul>
