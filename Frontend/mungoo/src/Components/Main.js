@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Post from '../Components/Post';
+import PostController from './PostController';
 import Footer from '../Components/Footer';
-import My from "../Components/My";
+import MyController from "./MyController";
 import MainNavigation from "./MainNavigation";
 import MypageNavigation from "../Components/MypageNavigation";
 function Main() {
@@ -22,7 +22,7 @@ function Main() {
         setIsMyPage(true);
     };
 
-    const MainClose = () => { // 메인으로 가는 버튼
+     const MainClose = () => { // 메인으로 가는 버튼
         setSelectedPost('Best');
         setIsMyPage(false);
     };
@@ -31,10 +31,10 @@ function Main() {
     let header;
 
     if (isMyPage) { // 마이페이지
-        content = <My MyName={selectedMyPage} />;
+        content = <MyController MyName={selectedMyPage} />;
         header = <MypageNavigation onSelectMyPage={onSelectMyPage}/>
     } else if (selectedPost) { // 게시판
-        content = <Post PostName={selectedPost} />;
+        content = <PostController PostName={selectedPost} />;
         header = <MainNavigation onSelectPost={handleSelectPost}/>
     }
 
@@ -48,10 +48,11 @@ function Main() {
                 {content}
             </div>
             <div style={{width:450}}>
-                <Footer onMyPageClick={handleMyPageClick} />
+                <Footer onMyPageClick={handleMyPageClick}  onMainClose={MainClose} />
             </div>
         </div>
     );
 }
+
 
 export default Main;

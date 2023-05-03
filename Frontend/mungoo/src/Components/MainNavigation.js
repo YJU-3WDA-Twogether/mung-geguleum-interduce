@@ -5,7 +5,6 @@ function MainNavigation({ onSelectPost }) {
     return (
         <nav>
             <ul>
-
                 <li>
                     <button onClick={() => onSelectPost('Best')}>베스트</button>
                 </li>

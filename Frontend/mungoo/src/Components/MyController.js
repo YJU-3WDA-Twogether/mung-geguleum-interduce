@@ -3,12 +3,12 @@ import MyPage from "../pages/MyPage";
 import MyLog from "../pages/MyLog";
 import MyPostView from "../pages/MyPostView";
 import MyModify from "../pages/MyModify";
-function My({ MyName }) {
+function MyController({ MyName }) {
 
     let page;
 
     switch (MyName) {
-        case 'My':
+        case 'MyController':
             page = <MyPage />;
             break;
         case 'MyLog':
@@ -26,4 +26,4 @@ function My({ MyName }) {
     }
     return page;
 }
-export default My;
+export default MyController;

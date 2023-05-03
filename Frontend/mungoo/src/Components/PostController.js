@@ -3,7 +3,7 @@ import BestPage from "../pages/BestPage";
 import MusicPage from "../pages/MusicPage";
 import StoriesPage from "../pages/StoriesPage";
 import RemakePage from "../pages/RemakePage";
-function Post({ PostName }) {
+function PostController({ PostName }) {
     let page;
 
     switch (PostName) {
@@ -26,4 +26,4 @@ function Post({ PostName }) {
     return page;
 }
 
-export default Post;
+export default PostController;

@@ -1,12 +1,16 @@
 
 ---
+![img.png](img/img3.png)
 REACT_APP_API_URL=http://172.26.27.157:9094
 
 공통 주소 테스트 할때 수정 할것
 
 const API_URL = process.env.REACT_APP_API_URL;
+
 ![img_2.png](img%2Fimg_2.png)
+
 선언후
+
 ![img_1.png](img%2Fimg_1.png)
 # components
 재사용 가능한 컴포넌트들이 위치하는 폴더입니다.

@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import '../styles/PageModal.css';
+import PageModal from '../modal/PageModal';
+import PageCreate from '../Components/PostCreate'
+import PostView from "../Components/PageView";
 
-function BsetPage(){
+const API_URL = process.env.REACT_APP_API_URL;
+
+const BestPage = () => {
+
+
 
     return (
-        <div>
-            베스트
-        </div>
+        <>
+            <PostView/>
+        </>
     );
-}
+};
 
-export default BsetPage;
+export default BestPage;
