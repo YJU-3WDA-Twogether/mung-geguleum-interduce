@@ -1,123 +1,137 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import '../styles/PostView.css'
-
-import { useNavigate } from "react-router-dom";
 import PageModal from "../modal/PageModal";
+import '../styles/PostView.css'
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 const API_URL = process.env.REACT_APP_API_URL;
+
+const PrevArrow = (props) => {
+    const { onClick, currentSlide } = props;
+    return (
+        <button className="slick-arrow slick-prev" onClick={onClick} style={{ zIndex: 1, display: currentSlide === 0 ? 'none' : 'block' , backgroundColor:"black"}}>
+            Prev
+        </button>
+    );
+};
+const NextArrow = (props) => {
+    const { onClick, currentSlide, slideCount } = props;
+    return (
+        <button className="slick-arrow slick-next" onClick={onClick} style={{ zIndex: 1, display: currentSlide === slideCount - 1 ? 'none' : 'block',backgroundColor:"black" }}>
+            Next
+        </button>
+    );
+};
+
 const PostView = () => {
+    const [posts, setPosts] = useState([]);
+    const [showPopup, setShowPopup] = useState(false);
 
-    const [posts, setPosts] = useState([
-        {
-            id: 1,
-            content: "첫 번째 포스트입니다.",
-            attachments: [
-                {
-                    type: "image/png",
-                    url: "https://via.placeholder.com/150",
-                },
-                {
-                    type: "image/png",
-                    url: "https://via.placeholder.com/150",
-                },
-                {
-                    type: "image/png",
-                    url: "https://via.placeholder.com/150",
-                },
-            ],
-        },
-        {
-            id: 2,
-            content: "두 번째 포스트입니다.",
-            attachments: [
-                {
-                    type: "video/mp4",
-                    url: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4",
-                },
-                {
-                    type: "video/mp4",
-                    url: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4",
-                },
-                {
-                    type: "audio/mpeg",
-                    url: "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3",
-                },
-            ],
-        },
-    ]);
-        const [showPopup, setShowPopup] = useState(false);
+    const [imageUrl, setImageUrl] = useState('');
 
-        useEffect(() => {
+    const downloadFile = (file) => {
+        const url = `${API_URL}/file/download/${file.fno}`;
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = file.fname;
+        link.click();
+
+        axios.get(`${API_URL}/file/download/${file.fno}`, {
+            file: file.fname,
+            user: '사용자명' // 사용자명을 동적으로 전달할 수 있습니다.
+        }).then(response => {
+            console.log(response.data);
+        }).catch(error => {
+            console.error(error);
+        });
+    };
+
+    useEffect(() => {
         const fetchPosts = async () => {
-        try {
-            const response = await axios.get('http://172.26.27.157:9094/post/getlist');
-            console.log(response.data.content);
-            setPosts(response.data.content);
+            try {
+                const response = await axios.get(`${API_URL}/post/getlist`);
+                console.log(response.data.content);
+                setPosts(response.data.content);
             } catch (error) {
                 console.error(error);
             }
         };
         fetchPosts();
-        }, []);
+    }, []);
 
-        const handleOutsideClick = (e) => {
-        const layerPopup = document.querySelector('.layer-popup');
-        if (!layerPopup.contains(e.target)) {
-        setShowPopup(false);
-        }
-        };
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: <PrevArrow />,
+        nextArrow: <NextArrow />,
+    };
 
-        return (
-        <>
+    return (
+        <div className="feed">
+            <h2>피드</h2>
             {posts.map((post) => (
-                <div className="postView-content" key={post.id}>
-                    <div>
-                        <div>
-                            <img />
-                            박영진 2023:05:42
-                        </div>
-                        {post.content}
+                <div className="feed-pos" key={post.id}>
+                    <div className="feed-header">
+                        <h3>{post.title}</h3>
+                        <p>{post.uid} 님의 게시글</p>
                     </div>
-                    {post.attachments && (
-                        <Carousel showThumbs={false} showArrows >
-                            {post.attachments.map((attachment, i) =>
-                                attachment.type.startsWith("image") ? (
-                                    <div className="twit-img-container" key={i}>
-                                        <img
-                                            className="twit-img"
-                                            src={attachment.url}
-                                            alt="첨부된 이미지"
-                                            style={{
-                                                maxWidth: "700px",
-                                                maxHeight: "700px",
-                                                objectFit: "contain",
-                                            }}
-                                        />
+                    <div className="feed-content">
+                        <p>{post.content}</p>
+                        {post.file.length > 0 && (
+                            <Slider {...settings} draggable={false}>
+                                {post.file.map((file) => (
+                                    <div key={file.fno}>
+                                        {file.fname.match(/.(jpg|jpeg|png|gif)$/i) ? (
+                                            <div className="img-wrap">
+                                                <img src={`${API_URL}/file/read/${file.fno}`} alt="file" style={{width:600, height:650}}/>
+                                                <button onClick={() => downloadFile(file)}>다운로드</button>
+                                            </div>
+                                        ) : file.fname.match(/.(mp4|webm)$/i) ? (
+                                            <div className="video-wrap">
+                                                <video controls>
+                                                    <source src={`${API_URL}/file/read/${file.fno}`} type={`video/${file.fname.split('.').pop()}`} />
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                                <button onClick={() => downloadFile(file)}>다운로드</button>
+                                            </div>
+                                        ) : file.fname.match(/.(mp3|wav)$/i) ? (
+                                            <div className="audio-wrap">
+                                                <audio controls>
+                                                    <source src={`${API_URL}/file/read/${file.fno}`} type={`audio/${file.fname.split('.').pop()}`} />
+                                                    Your browser does not support the audio tag.
+                                                </audio>
+                                                <button onClick={() => downloadFile(file)}>다운로드</button>
+                                            </div>
+                                        ) : (
+                                            <div className="file-wrap">
+                                                <a href={`${API_URL}/file/read/${file.fno}`} target="_blank" rel="noopener noreferrer">
+                                                    {file.fname}
+                                                </a>
+                                                <button onClick={() => downloadFile(file)}>다운로드</button>
+                                            </div>
+                                        )}
                                     </div>
-                                ) : attachment.type.startsWith("video") ? (
-                                    <video key={i} className="twit-video" controls>
-                                        <source src={attachment.url} type={attachment.type} />
-                                        Your browser does not support the video tag.
-                                    </video>
-                                ) : attachment.type.startsWith("audio") ? (
-                                    <audio key={i} className="twit-audio" controls>
-                                        <source src={attachment.url} type={attachment.type} />
-                                        Your browser does not support the audio tag.
-                                    </audio>
-                                ) : null
-                            )}
-                        </Carousel>
-                    )}
-
-                    <button className="btn-open" onClick={() => setShowPopup(true)}>댓글</button>
-                    <PageModal showPopup={showPopup} setShowPopup={setShowPopup} />
+                                ))}
+                            </Slider>
+                        )}
+                    </div>
+                    <div className="feed-footer">
+                        <button>좋아요</button>
+                        <button className="btn-open" onClick={() => setShowPopup(true)}>
+                            댓글
+                        </button>
+                        <button>다운로드</button>
+                        <button>...</button>
+                    </div>
                 </div>
-
             ))}
-        </>
+        </div>
     );
-};
-
+}
 export default PostView;

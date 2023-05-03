@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 const API_URL = process.env.REACT_APP_API_URL;
 
-const PostCreate = () => {
+// 작성후 초기화 시키기
+const PostCreate = () => { 
     const [user, setUser] = useState({});
     const [formData, setFormData] = useState({
         title: '',
@@ -25,7 +26,7 @@ const PostCreate = () => {
         setUser(JSON.parse(storedUser));
     }, [navigate]);
 
-    const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20MB
+    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 20MB
     const handleFileChange = (e) => {
         const files = Array.from(e.target.files);
 
