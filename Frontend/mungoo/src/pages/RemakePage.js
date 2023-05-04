@@ -1,12 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import PostRemakeCreate from "../Components/PostRemakeCreate";
 
 function RemakePage(){
+    const [pageView, setPageView] = useState(null);
 
-    return (
-        <div>
-             재창작
-        </div>
-    );
+    useEffect(() => {
+        const storedUser = sessionStorage.getItem('user');
+        if (!storedUser) {
+            // setPageView(<PageView />);
+            return;
+        }
+        setPageView(
+            <>
+                <PostRemakeCreate/>
+                {/*<PageView />*/}
+            </>
+        );
+    }, []);
+
+    return <div>{pageView}</div>;
 }
 
 export default RemakePage;

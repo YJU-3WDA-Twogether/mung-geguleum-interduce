@@ -3,6 +3,7 @@ import axios from 'axios';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import '../styles/MyLog.css';
+import MyLogModal from "../modal/MyLogModal";
 
 const API_URL = process.env.REACT_APP_API_URL;
 //  추후 예정
@@ -18,8 +19,12 @@ function MyLog() {
     const [result, setResult] = useState({});
     const [selectedDate, setSelectedDate] = useState(null);
     const selectedData = result[selectedDate];
-
+    const [showPopup, setShowPopup] = useState(false);
     const [user, setUser] = useState({});
+
+
+    const displayMonth = String(month).padStart(2, '0'); // 월을 두 자리 숫자로 만듦
+    const displayDate = `${year}-${displayMonth}`; // yyyy-mm 형식으로 조합
 
     useEffect(() => {
         const storedUser = sessionStorage.getItem('user');
@@ -27,9 +32,6 @@ function MyLog() {
             setUser(JSON.parse(storedUser));
         }
     }, []);
-
-    const displayMonth = String(month).padStart(2, '0'); // 월을 두 자리 숫자로 만듦
-    const displayDate = `${year}-${displayMonth}`; // yyyy-mm 형식으로 조합
 
     useEffect(() => {
         const params = {
@@ -94,8 +96,13 @@ function MyLog() {
 
     return (
         <div>
-            <Calendar onChange={onChange} value={value} calendarType="US" tileContent={tileContent} locale="ko-KR" />
+            <h2>피드</h2>
+            <button className="btn-open" onClick={() => setShowPopup(true)}>
+                알람
+            </button>
+            <MyLogModal showPopup={showPopup} setShowPopup={setShowPopup} />
 
+            <Calendar onChange={onChange} value={value} calendarType="US" tileContent={tileContent} locale="ko-KR" />
 
             <p>선택한 날짜: {value.toLocaleDateString()}</p>
             <p>현재 월: {year}년 {displayMonth}월</p>

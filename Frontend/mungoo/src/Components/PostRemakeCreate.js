@@ -1,9 +1,13 @@
 import React, { useState,useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
+import RemakeTegModal from "../modal/RemakeTegModal";
 const API_URL = process.env.REACT_APP_API_URL;
 
 // 작성후 초기화 시키기
-const PostCreate = () => { 
+const PostRemakeCreate = () => {
+    const [showPopup, setShowPopup] = useState(false);
     const [user, setUser] = useState({});
     const [formData, setFormData] = useState({
         title: '',
@@ -13,6 +17,7 @@ const PostCreate = () => {
         videoList: [],
     });
     const [category, setCategory] = useState();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const storedUser = sessionStorage.getItem('user');
@@ -20,7 +25,6 @@ const PostCreate = () => {
             setUser(JSON.parse(storedUser));
         }
     }, []);
-
 
     const MAX_FILE_SIZE = 10 * 1024 * 1024; // 20MB
     const handleFileChange = (e) => {
@@ -85,6 +89,13 @@ const PostCreate = () => {
             }));
         }
     };
+
+    // 재창작 태그를 선택하는 버튼 클릭시 모달 창 열기
+    const handleRemakeTagClick = (e) => {
+        e.preventDefault();
+        setShowPopup(true);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -94,6 +105,11 @@ const PostCreate = () => {
             data.append('title', formData.title);
             data.append('content', formData.content);
             data.append('bno', category);
+
+            // 재창작 태그 선택한 경우 데이터에 추가
+            if (formData.remakeTag) {
+                data.append('remakeTag', formData.remakeTag);
+            }
 
             const fileList = [
                 ...formData.fileList.map(({ file }) => ({ file, type: 'image' })),
@@ -118,11 +134,10 @@ const PostCreate = () => {
             alert('게시글 작성 중 오류가 발생했습니다.');
         }
     };
-
     return (
         <div>
             <h2>게시글 작성</h2>
-            <form encType="multipart/form-data" onSubmit={handleSubmit}>
+            <form  encType="multipart/form-data" onSubmit={handleSubmit}>
                 <div>
                     <input
                         type="text"
@@ -138,15 +153,21 @@ const PostCreate = () => {
                     <option value={3}>노래</option>
                     <option value={4}>재창작</option>
                 </select>
+                {/* 재창작 태그 선택 버튼 */}
+                <button className="btn-open" onClick={handleRemakeTagClick}>
+                    재창작 태그
+                </button>
+                {/* 재창작 태그 선택 모달 */}
+                <RemakeTegModal showPopup={showPopup} setShowPopup={setShowPopup} setFormData={setFormData} formData={formData} />
                 <div>
-                <textarea
-                    name="content"
-                    placeholder="내용"
-                    value={formData.content}
-                    onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-                    rows="10"
-                    cols="30"
-                ></textarea>
+                    <textarea
+                        name="content"
+                        placeholder="내용"
+                        value={formData.content}
+                        onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
+                        rows="10"
+                        cols="30"
+                    ></textarea>
                 </div>
                 <div>
                     <input type="file" accept="image/*, audio/*, video/*" onChange={handleFileChange} />
@@ -165,11 +186,12 @@ const PostCreate = () => {
                         </div>
                     ))}
                 </div>
-                <button type="submit" >작성하기</button>
+                <button type="submit">작성하기</button>
             </form>
+
         </div>
     );
 };
 
-export default PostCreate;
+export default PostRemakeCreate;
 

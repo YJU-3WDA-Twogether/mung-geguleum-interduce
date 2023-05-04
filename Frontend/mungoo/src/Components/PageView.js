@@ -54,7 +54,7 @@ const PostView = () => {
         axios.get(`${API_URL}/file/download/${file.fno}`, { params })
             .then(response => {
                 console.log(response.data);
-                const url = response.data.file.url;
+                const url = response.data.file;
                 const link = document.createElement('a');
                 link.href = url;
                 link.download = file.fname;
@@ -111,7 +111,7 @@ const PostView = () => {
                                             </div>
                                         ) : file.fname.match(/.(mp4|webm)$/i) ? (
                                             <div className="video-wrap">
-                                                <video controls>
+                                                <video controls style={{width:600, height:650}}>
                                                     <source src={`${API_URL}/file/read/${file.fno}`} type={`video/${file.fname.split('.').pop()}`} />
                                                     Your browser does not support the video tag.
                                                 </video>
