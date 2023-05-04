@@ -19,6 +19,8 @@ const LoginModal = ({ onClose, onLoginSuccess }) => {
             const response = await axios.post(`${API_URL}/user/login`, formData);
             sessionStorage.setItem('user', JSON.stringify(response.data));
             onLoginSuccess(response.data);
+            console.log(JSON.parse(sessionStorage.getItem('user')));
+
             alert('로그인에 성공하였습니다.');
             onClose();
         } catch (error) {

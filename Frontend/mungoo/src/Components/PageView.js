@@ -5,6 +5,7 @@ import '../styles/PostView.css'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import {useNavigate} from "react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -28,24 +29,40 @@ const NextArrow = (props) => {
 const PostView = () => {
     const [posts, setPosts] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
-
+    const [user, setUser] = useState({});
     const [imageUrl, setImageUrl] = useState('');
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const storedUser = sessionStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+            console.log(JSON.parse(storedUser))
+        }
+    }, []);
+
 
     const downloadFile = (file) => {
-        const url = `${API_URL}/file/download/${file.fno}`;
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = file.fname;
-        link.click();
 
-        axios.get(`${API_URL}/file/download/${file.fno}`, {
+        const params = {
             file: file.fname,
-            user: '사용자명' // 사용자명을 동적으로 전달할 수 있습니다.
-        }).then(response => {
-            console.log(response.data);
-        }).catch(error => {
-            console.error(error);
-        });
+            pno: file.pno,
+            uno: user.uno,
+        };
+        console.log(user.uno)
+
+        axios.get(`${API_URL}/file/download/${file.fno}`, { params })
+            .then(response => {
+                console.log(response.data);
+                const url = response.data.file.url;
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = file.fname;
+                link.click();
+            })
+            .catch(error => {
+                console.error(error);
+            });
     };
 
     useEffect(() => {
@@ -126,6 +143,7 @@ const PostView = () => {
                         <button className="btn-open" onClick={() => setShowPopup(true)}>
                             댓글
                         </button>
+                        <PageModal showPopup={showPopup} setShowPopup={setShowPopup} />
                         <button>다운로드</button>
                         <button>...</button>
                     </div>

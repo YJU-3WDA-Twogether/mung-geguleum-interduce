@@ -48,6 +48,7 @@ function Footer({ onMyPageClick,onMainClose }) {
                 </div>
             ) : (
                 <div>
+                    <button onClick={onMyPageClick}>마이페이지</button>
                     <button onClick={handleShowLoginModal} className="Button-Login">
                         로그인
                     </button>
