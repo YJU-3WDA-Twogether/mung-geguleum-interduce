@@ -20,7 +20,7 @@ const MyLogModal = ({ showPopup, setShowPopup }) => {
     };
 
     useEffect(() => {
-        const storedUser = sessionStorage.getItem('user');
+        const storedUser = localStorage.getItem('user');
         if (storedUser) {
             setUser(JSON.parse(storedUser));
         }

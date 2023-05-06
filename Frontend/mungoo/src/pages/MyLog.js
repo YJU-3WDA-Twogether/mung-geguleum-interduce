@@ -27,7 +27,7 @@ function MyLog() {
     const displayDate = `${year}-${displayMonth}`; // yyyy-mm 형식으로 조합
 
     useEffect(() => {
-        const storedUser = sessionStorage.getItem('user');
+        const storedUser = localStorage.getItem('user');
         if (storedUser) {
             setUser(JSON.parse(storedUser));
         }

@@ -34,7 +34,7 @@ const PostView = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const storedUser = sessionStorage.getItem('user');
+        const storedUser = localStorage.getItem('user');
         if (storedUser) {
             setUser(JSON.parse(storedUser));
             console.log(JSON.parse(storedUser))
@@ -50,6 +50,7 @@ const PostView = () => {
             uno: user.uno,
         };
         console.log(user.uno)
+        console.log(file.pno)
 
         axios.get(`${API_URL}/file/download/${file.fno}`, { params })
             .then(response => {
@@ -63,6 +64,10 @@ const PostView = () => {
             .catch(error => {
                 console.error(error);
             });
+    };
+
+    const handleClick = (uid) => {
+        history.push(`/user/${uid}`); //수정
     };
 
     useEffect(() => {
@@ -96,7 +101,7 @@ const PostView = () => {
                 <div className="feed-pos" key={post.id}>
                     <div className="feed-header">
                         <h3>{post.title}</h3>
-                        <p>{post.uid} 님의 게시글</p>
+                        <p onClick={() => handleClick(post.uid)}>{post.uid} 님의 게시글</p>
                     </div>
                     <div className="feed-content">
                         <p>{post.content}</p>

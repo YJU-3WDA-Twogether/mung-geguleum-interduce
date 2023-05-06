@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/MyLogModal.css';
 
-const RemakeTegModal = ({ showPopup, setShowPopup }) => {
+const RemakeTegModal = ({ showPopup, setShowPopup, onSelectPosts }) => {
+    // ...
     const [user, setUser] = useState({});
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -15,12 +16,13 @@ const RemakeTegModal = ({ showPopup, setShowPopup }) => {
             setShowPopup(false);
         }
     };
+
     const closeModal = () => {
         setShowPopup(false);
     };
 
     useEffect(() => {
-        const storedUser = sessionStorage.getItem('user');
+        const storedUser = localStorage.getItem('user');
         if (storedUser) {
             setUser(JSON.parse(storedUser));
         }
@@ -48,11 +50,14 @@ const RemakeTegModal = ({ showPopup, setShowPopup }) => {
     };
     const handleSelectPost = (post) => {
         const index = selectedPosts.indexOf(post);
+        let updatedPosts;
         if (index === -1) {
-            setSelectedPosts([...selectedPosts, post]);
+            updatedPosts = [...selectedPosts, post];
         } else {
-            setSelectedPosts([...selectedPosts.slice(0, index), ...selectedPosts.slice(index + 1)]);
+            updatedPosts = [...selectedPosts.slice(0, index), ...selectedPosts.slice(index + 1)];
         }
+        setSelectedPosts(updatedPosts);
+        onSelectPosts(updatedPosts);
     };
 
     const pageData = data.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);

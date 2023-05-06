@@ -28,9 +28,9 @@ const LoginModal = ({ showPopup, setShowPopup, onLoginSuccess }) => {
 
         try {
             const response = await axios.post(`${API_URL}/user/login`, formData);
-            sessionStorage.setItem('user', JSON.stringify(response.data));
+            localStorage.setItem('user', JSON.stringify(response.data));
             onLoginSuccess(response.data);
-            console.log(JSON.parse(sessionStorage.getItem('user')));
+            console.log(JSON.parse(localStorage.getItem('user')));
 
             alert('로그인에 성공하였습니다.');
             closeModal();

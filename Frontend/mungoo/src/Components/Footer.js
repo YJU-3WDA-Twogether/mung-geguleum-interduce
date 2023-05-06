@@ -13,18 +13,20 @@ function Footer({ onMyPageClick,onMainClose }) {
 
 
     const handleLoginSuccess = (user) => {
-        sessionStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(user));
         onMainClose(); // MainClose 함수 호출
         setUser(user);
 
     };
-    const handleLogout = () => {
-        sessionStorage.removeItem('user');
+    const handleLogout = async () => {
+        localStorage.removeItem('user');
         setUser({});
-        onMainClose(); // MainClose 함수 호출
+        console.log(user);
+        onMainClose();
     };
+
     useEffect(() => {
-        const storedUser = sessionStorage.getItem('user');
+        const storedUser = localStorage.getItem('user');
         if (storedUser) {
             setUser(JSON.parse(storedUser));
         } else {

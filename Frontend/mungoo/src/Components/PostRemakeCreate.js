@@ -17,14 +17,15 @@ const PostRemakeCreate = () => {
         videoList: [],
     });
     const [category, setCategory] = useState();
-    const navigate = useNavigate();
+    const [remakeTag, setRemakeTag] = useState(null);
 
     useEffect(() => {
-        const storedUser = sessionStorage.getItem('user');
+        const storedUser = localStorage.getItem('user');
         if (storedUser) {
             setUser(JSON.parse(storedUser));
         }
     }, []);
+
 
     const MAX_FILE_SIZE = 10 * 1024 * 1024; // 20MB
     const handleFileChange = (e) => {
@@ -94,7 +95,11 @@ const PostRemakeCreate = () => {
     const handleRemakeTagClick = (e) => {
         e.preventDefault();
         setShowPopup(true);
-    }
+    };
+
+    const handleSelectPosts = (posts) => {
+        setRemakeTag(posts);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -107,8 +112,8 @@ const PostRemakeCreate = () => {
             data.append('bno', category);
 
             // 재창작 태그 선택한 경우 데이터에 추가
-            if (formData.remakeTag) {
-                data.append('remakeTag', formData.remakeTag);
+            if (remakeTag) {
+                data.append('tag', JSON.stringify(remakeTag));
             }
 
             const fileList = [
@@ -127,7 +132,7 @@ const PostRemakeCreate = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-
+            console.log(response.data);
             alert('게시글이 성공적으로 작성되었습니다.');
         } catch (error) {
             console.error(error);
@@ -157,8 +162,8 @@ const PostRemakeCreate = () => {
                 <button className="btn-open" onClick={handleRemakeTagClick}>
                     재창작 태그
                 </button>
-                {/* 재창작 태그 선택 모달 */}
-                <RemakeTegModal showPopup={showPopup} setShowPopup={setShowPopup} setFormData={setFormData} formData={formData} />
+                <RemakeTegModal showPopup={showPopup} setShowPopup={setShowPopup} onSelectPosts={handleSelectPosts} />
+                {/* ... */}
                 <div>
                     <textarea
                         name="content"

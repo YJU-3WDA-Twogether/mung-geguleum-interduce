@@ -15,7 +15,7 @@ const PostCreate = () => {
     const [category, setCategory] = useState();
 
     useEffect(() => {
-        const storedUser = sessionStorage.getItem('user');
+        const storedUser = localStorage.getItem('user');
         if (storedUser) {
             setUser(JSON.parse(storedUser));
         }
