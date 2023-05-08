@@ -1,0 +1,41 @@
+.Remake.create-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.Remake.create-container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.Remake.create-container input[type="text"],
+.Remake.create-container textarea,
+.Remake.create-container input[type="file"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.Remake.create-container input[type="file"] {
+    padding: 0;
+}
+
+.Remake.create-container img,
+.Remake.create-container audio,
+.Remake.create-container video {
+    display: block;
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+

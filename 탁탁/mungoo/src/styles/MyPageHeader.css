@@ -1,0 +1,15 @@
+.MyPage-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MyPage-profile h1 {
+    font-size: 15px;
+    color: #6667AB;
+    background-color: #ffffff;
+    border: 1px  solid #6667AB;
+    padding: 100px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

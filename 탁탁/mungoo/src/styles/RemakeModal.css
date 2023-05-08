@@ -1,0 +1,132 @@
+.Remake.layer-popup.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.Remake.modal-dialog {
+    width: 90%;
+    max-width: 800px;
+}
+
+.Remake.modal-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Remake-Table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 14px;
+    overflow: auto;
+    table-layout: fixed;
+}
+
+.Remake-Table th,
+.Remake-Table td {
+    padding: 10px;
+    text-align: center;
+    border: none;
+    width: calc(100% / 4);
+}
+
+.Remake-Table th {
+    background-color: #f2f2f2;
+}
+
+.Remake-Table td {
+    padding: 5px;
+    text-align: center;
+    width: calc(100% / 4);
+}
+
+.close-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-button:hover {
+    background-color: #d32f2f;
+}
+
+.Remake .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.Remake .pagination button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 5px;
+    padding: 8px 16px;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    outline: none;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.Remake .pagination button span {
+    margin: auto;
+}
+
+.Remake .pagination button:hover {
+    background-color: #ccc;
+    border-color: #6667AB;
+    color: #fff;
+}
+
+.Remake .pagination button.active {
+    background-color: #4B4C7F;
+    border-color: #4B4C7F;
+    color: #fff;
+}
+
+.Remake-Title {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #6667AB;
+    color: white;
+    padding: 16px;
+    border-radius: 20px;
+    border: none;
+    font-size: 24px;
+    width: 47%;
+    height: 10%;
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

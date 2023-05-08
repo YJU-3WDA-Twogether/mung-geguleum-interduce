@@ -1,0 +1,83 @@
+/*로그인 회원가입 버튼 CSS*/
+.Button-Login {
+    background-color: #6667AB;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 100px;
+}
+.LoginHeader-SignHeader button {
+    margin-right: 8px;
+}
+
+.LoginHeader-SignHeader button:hover {
+    background-color: #4B4C7F;
+}
+
+.LoginHeader-SignHeader button:last-child {
+    background-color: #6667AB;
+    border: none;
+    color: #ffffff;
+    padding: 8px 16px;;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+/*로그인 회원가입 버튼 CSS*/
+
+
+
+/*로그인 페이지 마이페이지, 로그아웃 버튼*/
+.LoginPage-Header {
+    color: #6667AB;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-right: 20px;
+    height: 50px; /* 예시로 50px로 설정함 */
+}
+
+.LoginPage-Header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 16px;
+}
+
+.LoginPage-Header p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.LoginPage-Button button {
+    background-color: #6667AB;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.LoginPage-Button button:hover {
+    background-color: #4B4C7F;
+}
+
+.LoginPage-Button button:last-child:hover {
+    background-color: #4B4C7F;
+}
+
+/*로그인 페이지 마이페이지, 로그아웃 버튼*/
+
+.custom-backdrop {
+    background-color: rgba(10, 10, 0,1);
+}
+
