@@ -1,0 +1,56 @@
+.signup-container {
+  border-radius: 5px;
+}
+
+.signup-container h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  padding: 20px;
+  color: #6667AB;
+  font-weight: bold;
+}
+
+
+
+.SignInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.SignInput input {
+  display: inline-block;
+  width: 50%;
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 70px;
+  font-size: 16px;
+  border-radius: 10px;
+  border-color: #6667AB;
+
+}
+
+.SignButton {
+  position: absolute;
+  right: 120px;
+}
+
+.SignButton button {
+  background-color: #6667AB;
+  color: white;
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  line-height: 50px; /* added */
+}
+
+.SignButton button:hover {
+  background-color: #6667AB;
+}

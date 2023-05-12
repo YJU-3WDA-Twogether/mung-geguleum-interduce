@@ -3,29 +3,30 @@ import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import LoginModal from '../modal/LoginModal';
 import JoinModal from '../modal/JoinModal';
+import PageModal from "../modal/PageModal";
 
 function Footer({ onMyPageClick,onMainClose }) {
     const [user, setUser] = useState({});
-    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate();
 
-    const handleShowLoginModal = () => {
-        setShowLoginModal(true);
-    };
+
 
     const handleLoginSuccess = (user) => {
-        sessionStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(user));
         onMainClose(); // MainClose 함수 호출
         setUser(user);
-        setShowLoginModal(false);
+
     };
-    const handleLogout = () => {
-        sessionStorage.removeItem('user');
+    const handleLogout = async () => {
+        localStorage.removeItem('user');
         setUser({});
-        onMainClose(); // MainClose 함수 호출
+        console.log(user);
+        onMainClose();
     };
+
     useEffect(() => {
-        const storedUser = sessionStorage.getItem('user');
+        const storedUser = localStorage.getItem('user');
         if (storedUser) {
             setUser(JSON.parse(storedUser));
         } else {
@@ -48,19 +49,16 @@ function Footer({ onMyPageClick,onMainClose }) {
                 </div>
             ) : (
                 <div>
-                    <button onClick={handleShowLoginModal} className="Button-Login">
-                        로그인
+                    <button onClick={onMyPageClick}>마이페이지</button>
+                    <button className="btn-open" onClick={() => setShowPopup(true)}>
+                      로그인
                     </button>
                     <button> 회원가입 </button>
                 </div>
             )}
 
-            <Modal show={showLoginModal} onHide={() => setShowLoginModal(false)}>
-                <Modal.Header closeButton />
-                <Modal.Body>
-                    <LoginModal onLoginSuccess={handleLoginSuccess} onClose={() => setShowLoginModal(false)} />
-                </Modal.Body>
-            </Modal>
+            <LoginModal showPopup={showPopup} setShowPopup={setShowPopup} onLoginSuccess={handleLoginSuccess} />
+
         </footer>
     );
 }

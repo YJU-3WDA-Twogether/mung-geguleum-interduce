@@ -1,6 +1,5 @@
 import React, { useState,useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
 const API_URL = process.env.REACT_APP_API_URL;
 
 // 작성후 초기화 시키기
@@ -14,17 +13,14 @@ const PostCreate = () => {
         videoList: [],
     });
     const [category, setCategory] = useState();
-    const navigate = useNavigate();
 
     useEffect(() => {
-        const storedUser = sessionStorage.getItem('user');
-        if (!storedUser) {
-            // 로그인하지 않았다면 로그인 페이지로 이동
-            navigate('/');
-            return;
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
         }
-        setUser(JSON.parse(storedUser));
-    }, [navigate]);
+    }, []);
+
 
     const MAX_FILE_SIZE = 10 * 1024 * 1024; // 20MB
     const handleFileChange = (e) => {
@@ -122,10 +118,11 @@ const PostCreate = () => {
             alert('게시글 작성 중 오류가 발생했습니다.');
         }
     };
+
     return (
         <div>
             <h2>게시글 작성</h2>
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <form encType="multipart/form-data" onSubmit={handleSubmit}>
                 <div>
                     <input
                         type="text"
@@ -164,11 +161,11 @@ const PostCreate = () => {
                             {type === 'image' && <img src={URL.createObjectURL(file.file)} />}
                             {type === 'audio' && <audio src={URL.createObjectURL(file.file)} controls />}
                             {type === 'video' && <video src={URL.createObjectURL(file.file)} controls />}
-                            <button onClick={() => handleFileDelete(type, index)}>X</button>
+                            <button type="button" onClick={() => handleFileDelete(type, index)}>X</button>
                         </div>
                     ))}
                 </div>
-                <button type="submit">작성하기</button>
+                <button type="submit" >작성하기</button>
             </form>
         </div>
     );

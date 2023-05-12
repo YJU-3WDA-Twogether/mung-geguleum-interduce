@@ -1,0 +1,30 @@
+.react-calendar__month-view__days {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.react-calendar__tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.react-calendar__tile > * {
+    margin: 0;
+}
+.react-calendar__tile abbr {
+    white-space: nowrap;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: #f87171;
+    border-radius: 50%;
+    display: flex;
+    margin-left: 1px;
+}

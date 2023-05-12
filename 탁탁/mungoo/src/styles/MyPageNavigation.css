@@ -1,0 +1,41 @@
+.MyPageNavigation-Header {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    height: 150px;
+    margin-top: 20px;
+
+}
+
+.MyPageNavigation-Button ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: list-item;
+}
+
+.MyPageNavigation-Button li {
+    margin-right: 8px;
+    height: 50px; /* 원하는 높이값으로 변경 */
+    display: flex;
+    align-items: center;
+
+}
+
+.MyPageNavigation-Button button {
+    background-color: #E6ECFF;
+    color: #6667AB;
+    border: none;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: 40px;
+}
+
+.MyPageNavigation-Button button:hover {
+    background-color: #6667AB;
+    color:#FFFFFF;
+}
+

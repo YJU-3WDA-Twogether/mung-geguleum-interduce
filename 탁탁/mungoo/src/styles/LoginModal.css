@@ -1,0 +1,125 @@
+.login-container {
+    border-radius: 5px;
+}
+
+.login-h2 {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #6667AB;
+}
+
+.Loginform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.LoginInput {
+    margin-bottom: 20px;
+    width: 450px;
+    height: 70px;
+    margin-left: 0;
+    border-color: #6667AB;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.LoginButton {
+    position: absolute;
+    margin-top: 800px;
+    right: 120px;
+}
+
+.LoginButton button {    background-color: #6667AB;
+    color: white;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 50px; /* added */
+
+}
+
+.LoginButton button:hover {
+    background-color: #4B4C7F;
+}
+
+
+.Login-SignButton {
+    position: absolute;
+    margin-top: 305px;
+    right: 10px;
+}
+
+.Login-SignButton button {
+    background-color: #6667AB;
+    color: white;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 50px;
+}
+
+.Login-SignButton button:hover {
+    background-color: #4B4C7F;
+}
+
+.Naver-Login {
+    display: flex;
+    justify-content: center; /* 가로 가운데 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+    margin-top: 150px; /* 위쪽 여백 조절 */
+    margin-bottom: 20px;
+}
+
+.Naver-Login button {
+    background-color: #1EC800;
+    color: white;
+    height: 50px;
+    width: 440px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    line-height: 50px; /* added */
+}
+
+.Naver-Login button:hover {
+    background-color: #0E9600;
+}
+
+.Kakao-Login button {
+    background-color: #ffeb00;
+    color: black;
+    border: none;
+    height: 50px;
+    width: 440px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4px; /* adjust as needed */
+
+}
+
+.Kakao-Login button:hover {
+    background-color: #ffe100;
+    color: black;
+}
+
+

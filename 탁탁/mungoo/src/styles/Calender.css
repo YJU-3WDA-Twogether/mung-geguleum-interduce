@@ -1,0 +1,146 @@
+.react-calendar {
+    margin: 0px auto 0;
+}
+
+.react-calendar__tile--active {
+    background-color: #c1e87f;
+    border-radius: 50%;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:focus {
+    background-color: #c1e87f;
+    border-radius: 50%;
+    border: none;
+}
+
+.react-calendar__tile {
+    flex: 1 0 calc(100% / 7);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+
+
+}
+.react-calendar__month-view__days {
+    justify-content: space-between;
+}
+
+
+.Calender-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.Calender-info > div {
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.Calender-List {
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 2px solid #ffffff;
+    width: 450px;
+    margin: 350px auto 0;
+    background-color: #6667AB;
+    color: #ffffff;
+}
+
+.Calender-List h2 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+
+.Calender-List p {
+    font-size: 15px;
+    margin-bottom: 5px;
+    padding: 5px;
+    color: #ffffff;
+}
+
+.Calender-List li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+.react-calendar__month-view__days {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.react-calendar__tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.react-calendar__tile abbr {
+    white-space: nowrap;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: #f87171;
+    border-radius: 50%;
+    display: flex;
+    margin-left: 1px;
+}
+
+/*캘린더 데이터*/
+.Calender-Title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: #6667AB;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+    color: #FFF;
+    text-align: center;
+}
+
+.Calender-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #EFF3FF;
+}
+
+.Calender-table th,
+.Calender-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.Calender-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.Calender-data {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #999;
+    margin-top: 10px;
+}
+
+.Calender-thead {
+    border-bottom: 1px solid #6667AB;
+}
