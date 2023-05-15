@@ -25,18 +25,6 @@ public class FileController {
 	
 	private final FileService fileService;
 	
-
-//	 @PostMapping("/create")
-//	    public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) {
-//	        File uploadedFile = fileService.uploadFile(file);
-//	        return ResponseEntity.ok().body(uploadedFile);
-//	    }
-	    
-		//파일 다운로드 메소드
-//	    @GetMapping("/download/{fno}")
-//	    public ResponseEntity<Resource> downloadFile(@PathVariable Long fno) {
-//	    	Long uno = 3L;
-//	    	Long pno = 10L;
 	@GetMapping("/download/{fno}")
 	    public ResponseEntity<Resource> downloadFile(@PathVariable Long fno,@RequestParam Long uno, @RequestParam Long pno) {
 		

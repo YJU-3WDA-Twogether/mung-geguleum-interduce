@@ -13,11 +13,6 @@ public interface TagRepository extends JpaRepository<Tag , Long>{
 	  @Query("SELECT distinct t FROM Tag t JOIN t.post p JOIN p.user u")
 	    List<Tag> findTagWithPostAndUser();
 	  
-//	  @Query("SELECT t.post AS pno, t.log AS lno FROM Tag t")
-//	    List<Map<String, Long>> findPostAndLog();
-	  
-//	  @Query("SELECT t.post, t.log FROM Tag t")
-//	  List<Object[]> findPostAndLog();
 	  
 	  @Query("SELECT distinct t.post.pno, t.log.lno FROM Tag t")
 	  List<Object[]> findPostAndLog();

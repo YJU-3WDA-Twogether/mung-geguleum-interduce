@@ -10,6 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.capstone.Entity.Log;
 import com.capstone.Entity.Post;
@@ -35,6 +36,7 @@ public class TagService {
 	//태그 생성메소드는 postService 에서 만들어서 값을 받아서 할당해야함.
 	//post Service에서 받을값은 게시글 pno와 로그 lno 의 값을 담아서 넣어줘야함.
 	//근데 여기서 lno의 값은 post 할 경우 담겨져있는 tag [] 에서 값을추출해서 넣어줘야함. 
+	@Transactional
 	public void tagCreate(Long[] logs , Post post) {
 		
 		//지금은 임시로 Object이지만 추후에 front에서 데이터를 전송하는 타입으로 변경해서 다시받아야함.
@@ -46,6 +48,7 @@ public class TagService {
 			
 		}
 	}
+	@Transactional
 	public List<Object> getTagJson() {
 	    List<Object[]> tagList = this.tagRepository.findAllWithPostAndLog();
 	    Set<Map<String, Object>> nodeList = new HashSet<>();

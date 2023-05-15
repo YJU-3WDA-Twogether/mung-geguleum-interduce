@@ -36,8 +36,6 @@ import lombok.RequiredArgsConstructor;
 public class PostController {
 	
 	private final PostService postService;
-	private final BoardService boardService;
-	private final UserService userService;
 	
 	@ResponseBody
 	@GetMapping("/getlist")
@@ -70,26 +68,7 @@ public class PostController {
 		}
 	}
 	
-//	@GetMapping("/posts")
-//	public ResponseEntity<Page> getPostListByUserAndBoard(@RequestParam(value="page", defaultValue="0") int page) {
-//
-//	    User user = userService.findAll();
-//	    Board board = boardService.getBoardByBno(bno);
-//	    Page<Post> postList = postService.getPostListByUserAndBoard(user, board, page);
-//
-//	    return ResponseEntity.ok().body(postList);
-//	}
-
-	
-	
-	@GetMapping("/")
-	public String test() {
-		return "테스트입니다.";
-	}
-	
-
 	@PostMapping("/create")
-	@Transactional
 	public  ResponseEntity<Boolean> postCreate( @Valid PostRequest postRequest , BindingResult bindingResult){
 		System.out.println("누군가 게시판 작성을 시도했다.");
 		if(postRequest.getTag() != null) {

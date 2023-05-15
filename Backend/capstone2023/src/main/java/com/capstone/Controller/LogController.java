@@ -22,21 +22,6 @@ import lombok.RequiredArgsConstructor;
 public class LogController {
 	private final LogService logService;
 	
-//	@ResponseBody
-//	@GetMapping("/getlist/{bname}")
-//	public ResponseEntity<Log> getList(@RequestParam(value="page", defaultValue="0") int page,@PathVariable String bname) {
-//		System.out.println("누군가 게시판 전체조회를 시도했다.");
-//		Page<PostResponse> paging = this.logService.getList(page, bname);
-//		
-//		if(paging != null) {
-//			System.out.println("게시판 전체조회 성공");
-//			return ResponseEntity.ok(paging);	
-//		}else {
-//			System.out.println("게시판 전체조회 실패");
-//			return new ResponseEntity<>(paging, HttpStatus.BAD_REQUEST);
-//		}
-//	}
-	
 	//달력로그 확인하는 메소드. 
 	@GetMapping("/getlist")
 	public ResponseEntity<Page> getList(@RequestParam String date, @RequestParam Long uno , @RequestParam(defaultValue = "0") int page) {

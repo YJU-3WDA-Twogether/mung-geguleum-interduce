@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.capstone.DTO.User.UserCreateForm;
 import com.capstone.DTO.User.UserDTO;
@@ -44,6 +45,7 @@ public class UserService {
 	
 	
 	//유저 본인정보 조회메소드
+	@Transactional
 	public UserDTO userGet(Long uno) {
 		Optional<User> user = this.userRepository.findByUno(uno); 
 		if(user.isPresent()) {
@@ -55,6 +57,7 @@ public class UserService {
 	}
 	
 	//유저 정보 수정 메소드 
+	@Transactional
 	public UserDTO userUpdate(Long uno , UserDTO userDTO) {
 		Optional<User> user = userRepository.findByUno(uno);
 		if(user.isPresent()) {
@@ -70,12 +73,14 @@ public class UserService {
 	
 	
 	//회원삭제 메소드
+	@Transactional
 	public void userDelete(Long uno) {
 		this.userRepository.deleteById(uno);
 		
 	}
 	//유저 로그인 메소드 
 	//추후에 시큐리티 및 jwt 발급을 추가해야함 23.04.04 작성한메소드. 
+	@Transactional
 	public UserDTO login(String uid, String password) {
 		Optional<User> user = this.userRepository.findByUidAndPassword(uid, password);
 		UserDTO userDTO = userMapper.toUserDTO(user.get());
@@ -85,19 +90,9 @@ public class UserService {
 			return null;
 		}
 	}
-	
-//	public List<UserDTO> getList() {
-//		List<User> user = this.userRepository.findAll();
-//		
-//		List<UserDTO> list = new ArrayList<>();
-//		for(User User : user   ) {
-//			list.add(userMapper.toUserDTO(User));
-//		}
-//		return list;
-//	}
-	
-	
+		
 	//페이징 사용한 유저 조회
+	@Transactional
 	 public Page<UserDTO> getList(int page) {
 		Pageable pageable = PageRequest.of(page,10);
 		Page <User> userList =  this.userRepository.findAll(pageable);
@@ -105,6 +100,7 @@ public class UserService {
 	 }
 	 
 	//uid 중복체크메소드
+	@Transactional
 		public boolean uidchk(String uid) {
 			Optional<User> user = this.userRepository.findByUid(uid);
 			if(user.isPresent()) {
@@ -115,6 +111,7 @@ public class UserService {
 		}
 		
 	//email중복체크메소드
+	@Transactional
 		public boolean emailchk(String email) {
 			Optional<User> user = this.userRepository.findByEmail(email);
 			if(user.isPresent()) {
@@ -125,6 +122,7 @@ public class UserService {
 		}
 		
 	//nickname중복체크메소드
+	@Transactional
 		public boolean nicknamechk(String nickname) {
 			Optional<User> user = this.userRepository.findByNickname(nickname);
 			if(user.isPresent()) {

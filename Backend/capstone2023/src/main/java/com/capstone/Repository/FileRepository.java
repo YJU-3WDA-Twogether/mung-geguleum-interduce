@@ -14,10 +14,5 @@ public interface FileRepository extends JpaRepository<File, Long> {
     
     List<File> findAll();
     
-   // List<File> findByPno(Long pno);
-    
     File save(File file);
-    
-    
-   // void deleteByFno(Long fno);
 }

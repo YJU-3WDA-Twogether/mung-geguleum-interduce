@@ -89,9 +89,8 @@ public class FileService {
        }
        return true;
    }
-   //파일 다운로드메소드 
-  //  public ResponseEntity<Resource> downloadFile(Long fno) {
-       
+   
+   //파일 다운로드메소드        
    @Transactional
    public ResponseEntity<Resource> downloadFile(Long fno, Long uno, Long pno ) {
         Optional <File> file = fileRepository.findByFno(fno);
@@ -137,18 +136,6 @@ public class FileService {
     	 return null;
     	
     }
-    //여러 파일 조회 메소드 게시글에 종속된 파일 불러올 수 있다.
-//    public List<FileDTO> getFile(Long pno){
-//    	List<File> fileList = this.fileRepository.findByPno(pno);
-//    	
-//    	List<FileDTO> fileDTOList = fileList.stream()
-//    		    .map(fileMapper::toFileDTO)
-//    		    .collect(Collectors.toList());
-//    		    
-//    		return fileDTOList;
-//    	
-//    	
-//    }
    
    @Transactional
     public void deleteFile(Long fno) {
@@ -162,8 +149,6 @@ public class FileService {
         }else {
         	System.out.println("삭제할 파일이 없습니다.");
         }
-        
-       
     }
 
 

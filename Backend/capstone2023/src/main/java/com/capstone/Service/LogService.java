@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.capstone.DTO.Log.LogRequest;
 import com.capstone.DTO.Log.LogResponse;
@@ -36,6 +37,7 @@ public class LogService {
 		
 	//일단 로그 생성하는거 
 	//로그생성하는 경우는 게시글 등록을 했을때, 파일을 다운로드 받았을떄, 
+	@Transactional
 	public Log LogCreate(LogRequest logRequest) {
 		System.out.println("로그 생성 요청");
 		Optional<Post> post = this.postRepository.findByPno(logRequest.getPno());
@@ -57,6 +59,7 @@ public class LogService {
 	
 	
 	//달력로그 호출하는 메소드
+	@Transactional
 	public Page<LogResponse> getList(int page, String date, Long uno){
 		//Pageable pageable = PageRequest.of(page,10);
 		Pageable pageable = PageRequest.of(page,100);
@@ -67,6 +70,7 @@ public class LogService {
 	
 		
 	//다운로드 로그 호출하는 메소드.
+	@Transactional
 	public Page<LogResponse> getDownList(Long puno, int page){
 		Pageable pageable = PageRequest.of(page,100);
 		//Pageable pageable = PageRequest.of(page,10);
@@ -75,6 +79,7 @@ public class LogService {
 		
 	}
 	
+	@Transactional
 	public Page<LogResponse> getTagList(Long uno, int page){
 		//Pageable pageable = PageRequest.of(page,10);
 		Pageable pageable = PageRequest.of(page,100);

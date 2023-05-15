@@ -31,7 +31,6 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 	
 	private final UserService userService;
-	//private final User user;
 	
 	//사용자 전체조회 json형태로 반환
 		@ResponseBody
