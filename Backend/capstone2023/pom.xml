@@ -61,13 +61,6 @@
 		  <scope>runtime</scope>
 		</dependency>
 
-		
-
-		<dependency>
-			<groupId>com.example</groupId>
-			<artifactId>spring_study</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
