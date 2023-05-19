@@ -44,7 +44,7 @@ function Main() {
                     <img src={process.env.PUBLIC_URL + '/MainLogo.png'} alt="로고 이미지" className="Logo-Image" style={{ width: "150px", height: "auto", marginLeft:"30px" ,color:"#ffffff"}} onClick={MainClose}/>
                 {header}
             </div>
-            <div style={{width:1400}}>
+            <div style={{ width: "100%" }}>
                 {content}
             </div>
             <div style={{width:450}}>

@@ -4,6 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import LoginModal from '../modal/LoginModal';
 import SignUpModal from "../modal/SignUpModal";
 import '../styles/Footer.css';
+import '../styles/LoginModal.css';
+
 
 function Footer({ onMyPageClick,onMainClose }) {
     const [user, setUser] = useState({});
@@ -70,7 +72,7 @@ function Footer({ onMyPageClick,onMainClose }) {
                     <button onClick={handleShowSignUpModal}>회원가입</button>
                 </div>
             )}
-            <Modal show={showLoginModal} onHide={() => setShowLoginModal(false)} size="sm" style={{ height: '750px' }} >
+            <Modal show={showLoginModal} onHide={() => setShowLoginModal(false)} size="sm" style={{ height: '750px' }} className='Login-Modal' >
                 <Modal.Header closeButton>
                 </Modal.Header>
                 <Modal.Body>

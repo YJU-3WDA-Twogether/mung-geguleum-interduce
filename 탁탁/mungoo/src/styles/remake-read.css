@@ -1,0 +1,113 @@
+.remake-read .modal-dialog {
+    max-width: 600px;
+    margin: 50px auto;
+  }
+  
+  .remake-read .modal-content {
+    border-radius: 10px;
+  }
+  
+  .remake-read .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: none;
+  }
+  
+  .remake-read .modal-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .remake-read .modal-body {
+    padding: 20px;
+  }
+  
+  .remake-read .img-wrap img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .remake-read .video-wrap video {
+    width: 100%;
+    height: auto;
+  }
+  
+  .remake-read .audio-wrap audio {
+    width: 100%;
+  }
+  
+  .remake-read .file-wrap a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .remake-read .file-wrap a:hover {
+    text-decoration: underline;
+  }
+  
+  .remake-read .modal-footer {
+    border-top: none;
+    padding: 20px;
+  }
+  
+  .remake-read .modal-footer button {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px 16px;
+  }
+  
+  .remake-read .modal-footer button:hover {
+    background-color: #0069d9;
+  }
+
+
+  .remake-read .modal-dialog {
+    max-width: 80vw; /* Adjust the maximum width percentage as needed */
+    max-height: 80vh; /* Adjust the maximum height percentage as needed */
+    margin: 10vh auto; /* Adjust the vertical margin as needed */
+  }
+  
+  .remake-read .modal-content {
+    border-radius: 10px;
+  }
+  
+  .remake-read .modal-body {
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+
+
+  /* 창작물 상세보기 Text */
+  .remake-read-Text {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .remake-read-Text > * {
+    margin-left: 10px; /* Adjust the margin as needed */
+  }
+    /* 창작물 상세보기 Text */
+
+
+    .remake-many {
+        display: flex;
+        justify-content: flex-start;
+      }
+      
+      .remake-many > div {
+        margin-right: 10px; /* Adjust the margin as needed */
+      }
+        
+
+
+
+  
+  
+  

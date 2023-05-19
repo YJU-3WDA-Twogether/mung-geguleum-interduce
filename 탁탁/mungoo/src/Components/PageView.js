@@ -6,6 +6,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Accordion from 'react-bootstrap/Accordion';
+import D3 from "../pages/D3"
 
 
 const API_URL = process.env.REACT_APP_API_URL;
@@ -140,11 +141,8 @@ const PostView = () => {
                     </div>
                     <div className="feed-footer">
                         <button>좋아요</button>
-                        <button className="btn-open" onClick={handleButtonClick}>로그</button>
-                        <button className="btn-open" onClick={() => setShowPopup(true)}>
-                            댓글
-                        </button>
-                        <PageModal showPopup={showPopup} setShowPopup={setShowPopup} />
+                        <button>로그</button>
+                        <button>댓글</button>
                         <button>다운로드</button>
                         <Accordion defaultActiveKey={[]} alwaysOpen>
                             <Accordion.Item eventKey="0">
@@ -152,7 +150,8 @@ const PostView = () => {
                                 <Accordion.Body>
                                     <ul>
                                         <li>신고하기</li>
-                                        <li>그래프 조회하기</li>
+                                        <li><button className="btn-open" onClick={() => setShowPopup(true)}>그래프 조회하기</button>
+                                            <PageModal showPopup={showPopup} setShowPopup={setShowPopup} /></li>
                                     </ul>
                                 </Accordion.Body>
                             </Accordion.Item>

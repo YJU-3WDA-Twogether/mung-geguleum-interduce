@@ -1,13 +1,38 @@
-import React from "react";
-import D3 from "./D3";
+import React, { useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
+import D3 from './D3';
 
-function MusicPage(){
-    const handleButtonClick = () => {
-        window.open('/d3.html', '_blank', 'width=800,height=600');
-    }
+function MusicPage() {
+  const [showModal, setShowModal] = useState(false);
 
-    return (
-        <button onClick={handleButtonClick}>Open HTML File</button>
-    );
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  return (
+    <div>
+      <Button variant="primary" onClick={openModal}>
+        모달 열기
+      </Button>
+      <Modal show={showModal} onHide={closeModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>모달 타이틀</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <D3 />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={closeModal}>
+            닫기
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
 }
+
 export default MusicPage;

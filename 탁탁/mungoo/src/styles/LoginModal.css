@@ -54,7 +54,7 @@
 
 .Login-SignButton {
     position: absolute;
-    margin-top: 305px;
+    margin-top: 330px;
     right: 10px;
 }
 
@@ -94,6 +94,7 @@
     transition: all 0.3s ease;
     font-size: 16px;
     line-height: 50px; /* added */
+    margin-left: 10px;
 }
 
 .Naver-Login button:hover {
@@ -113,7 +114,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 4px; /* adjust as needed */
+    margin-left: 105px; /* adjust as needed */
 
 }
 
@@ -121,5 +122,26 @@
     background-color: #ffe100;
     color: black;
 }
+
+
+
+/* 모달창 */
+.Login-Modal .modal-dialog {
+    max-width: 700px;
+    margin: 100px auto;
+  }
+  
+  .Login-Modal .modal-content {
+    height: 750px;
+  }
+  
+  .modal-lg .modal-dialog {
+    max-width: 800px;
+    margin: 50px auto;
+  }
+  
+  .modal-lg .modal-content {
+    height: 800px;
+  }
 
 

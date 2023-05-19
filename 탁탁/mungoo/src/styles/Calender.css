@@ -144,3 +144,14 @@
 .Calender-thead {
     border-bottom: 1px solid #6667AB;
 }
+
+.Calender-Header {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    margin-top: 100px;
+}

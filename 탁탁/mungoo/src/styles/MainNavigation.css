@@ -4,7 +4,10 @@
     align-items: center;
     height: 200px;
     margin-top: 10px;
-}
+    position: relative;
+    left: 0;
+  }
+  
 
 .Navigation-Button ul {
     list-style: none;
