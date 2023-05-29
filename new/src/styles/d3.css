@@ -1,0 +1,49 @@
+
+.controls .force {
+  background-color:#eee;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+/* SVG styles */
+.svg {
+  flex-basis: 100%;
+  min-width: 200px;
+}
+.links line {
+  stroke: #aaa;
+}
+.nodes circle {
+  pointer-events: all;
+}
+
+/* modal styles */
+
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+  width: 1300px;
+  height: 880px;
+}
+
+.ReactModal__Overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.left-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.right-content {
+  flex: 1;
+  padding: 20px;
+}

@@ -1,0 +1,331 @@
+.nweet {
+    background: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 auto;
+    color: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid #ebebeb;
+}
+
+.nweet:hover {
+    background: #ececec70;
+}
+
+.nweet .nweet__wrapper {
+    cursor: pointer;
+}
+
+/* 리트윗 */
+.nweet__reNweet {
+    display: flex;
+    align-items: center;
+    margin: 8px 0 -8px 0;
+    height: 16px;
+    font-weight: 500;
+    color: #53716a;
+}
+
+.nweet__reNweet .nweet__reNweetIcon {
+    width: 64px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 12px;
+}
+
+.nweet__reNweet svg {
+    width: 16px;
+    height: 16px;
+    transform: rotate(90deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nweet__reNweet p {
+    font-size: 12px;
+}
+
+/* 리플 */
+.nweet__reply {
+    display: none;
+    margin: 8px 0 -8px 0;
+    padding: 0 16px;
+    align-items: center;
+    height: 16px;
+    color: #53716a;
+}
+
+.select {
+    display: flex;
+    transition: all 0.2s;
+}
+
+.nweet__reply .nweet__replyText {
+    display: flex;
+}
+
+.nweet__reply .nweet__replyText p {
+    font-size: 12px;
+}
+
+.nweet__reply .nweet__replyText p:first-child {
+    font-weight: 700;
+    color: #429170;
+    cursor: pointer;
+}
+
+.nweet__reply .nweet__replyText p:first-child:hover {
+    text-decoration: underline;
+}
+
+/* 트윗 내용 */
+.nweet__container {
+    width: 100%;
+    display: flex;
+    padding: 16px 16px 0;
+}
+
+.nweet__profile {
+    margin-right: 12px;
+    height: 100%;
+}
+
+/* 프로필 이미지 */
+.profile__image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: contain;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.profile__image:hover {
+    filter: brightness(90%);
+}
+
+.userInfo {
+    width: 100%;
+    word-wrap: break-word;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userInfo .userInfo__name {
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* justify-content: space-between; */
+    line-height: 20px;
+}
+
+.userInfo .userInfo__name .userInfo__one p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.userInfo .userInfo__name .userInfo__one p:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.userInfo .userInfo__name .userInfo__two {
+    font-size: 14px;
+    display: flex;
+    color: #53716a;
+    align-items: baseline;
+}
+
+.nweet__createdAt {
+    font-size: 12px;
+}
+
+/* 텍스트 */
+.nweet__text {
+    font-size: 14px;
+    padding: 0 16px;
+    margin: 12px 0;
+    width: 100%;
+    height: auto;
+    white-space: pre-wrap;
+    line-height: 24px;
+}
+
+/* 이미지 */
+.nweet__image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.nweet__image img {
+    width: 100%;
+    height: 100%;
+}
+.nweet__image video {
+    width: 300px;
+    height: 100px;
+}
+
+
+/* 수정 창 */
+.nweet__editIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.horizontal__bg {
+    border-radius: 50%;
+    transition: all 0.2s;
+    cursor: pointer;
+    background: transparent;
+}
+
+.nweet__editIcon:hover .horizontal__bg {
+    display: block;
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background-color: rgba(51, 114, 88, 0.1);
+}
+
+.nweet__editIcon svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* 트윗 액션 */
+.nweet .nweet__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+    /* padding: 0 16px 16px; */
+    margin-top: -16px;
+    padding: 16px;
+}
+
+.nweet .nweet__actions .actionBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* 트윗 액션 아이콘 */
+.nweet .nweet__actions .actionBox .actions__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nweet .nweet__actions .actionBox .actions__icon::after {
+    display: block;
+    content: "";
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    transition: all 0.2s;
+}
+
+.nweet .nweet__actions .actionBox:hover .actions__icon::after {
+    background-color: #7ad3ae34;
+}
+
+.nweet .nweet__actions .actionBox .actions__icon svg {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6f7c79c7;
+}
+
+/* 댓글 */
+.nweet .nweet__actions .actionBox.comment .actions__icon svg {
+}
+
+.nweet .nweet__actions .actionBox.comment:hover .actions__icon svg {
+    color: #f9183d;
+}
+
+/* 좋아요 */
+.nweet .nweet__actions .actionBox:nth-child(3):hover,
+.nweet .nweet__actions .actionBox:nth-child(3):hover .actions__icon svg,
+.nweet .nweet__actions .actionBox:nth-child(3).like .actions__icon svg,
+.nweet .nweet__actions .actionBox:nth-child(3).like:hover {
+    color: #6667ab;
+}
+
+.nweet .nweet__actions .actionBox:nth-child(3):hover .actions__icon::after {
+    background-color: #f918801a;
+}
+
+/* 북마크 */
+.nweet .nweet__actions .actionBox.bookmark,
+.nweet .nweet__actions .actionBox.bookmark .actions__icon svg,
+.nweet .nweet__actions .actionBox:nth-child(4):hover .actions__icon svg {
+    color: #f9183d;
+}
+
+
+.nweet .nweet__actions .actionBox:nth-child(2):hover,
+.nweet .nweet__actions .actionBox:nth-child(2):hover .actions__icon svg,
+.nweet .nweet__actions .actionBox.reNweet .actions__icon svg,
+.nweet .nweet__actions .actionBox.reNweet:hover {
+    color: #6667ab;
+}
+
+.nweet .nweet__actions .actionBox:nth-child(2):hover .actions__icon::after {
+    background-color: #1d9bf01a;
+}
+
+/* 트윗 액션 숫자 */
+.nweet .nweet__actions .actionBox .actions__text {
+    max-width: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-overflow: ellipsis;
+}
+
+.nweet .nweet__actions .actionBox p {
+    padding: 0 12px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #53716a;
+}
+
+/* 리트윗 숫자 */
+.nweet .nweet__actions .actionBox.reNweet p {
+    color: #1d9bf0;
+}
+
+/* 좋아요 숫자 */
+.nweet .nweet__actions .actionBox.like p {
+    color: #6667ab;
+}

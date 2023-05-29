@@ -1,0 +1,56 @@
+/*.MyPage-profile {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 100%;*/
+/*}*/
+
+/*.MyPage-profile h1 {*/
+/*    font-size: 15px;*/
+/*    margin-bottom: 5px;*/
+/*    color: #6667AB;*/
+/*    background-color: #ffffff;*/
+/*    border: 1px  solid #6667AB;*/
+/*    padding: 100px;*/
+/*    border-radius: 5px;*/
+/*    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);*/
+/*}*/
+
+/*!*정보수정 버튼*!*/
+/*.MyPageU-Button {*/
+/*    text-align: right;*/
+/*}*/
+
+/*.MyPage-U ul {*/
+/*    list-style: none;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.MyPage-U ul li {*/
+/*    display: inline-block;*/
+/*    margin-right: 10px;*/
+/*}*/
+
+/*.MyPage-U ul li button {*/
+/*    background-color: #6667AB;*/
+/*    color: #fff;*/
+/*    border: none;*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 5px;*/
+/*    font-size: 16px;*/
+/*    cursor: pointer;*/
+/*    transition: all 0.3s ease-in-out;*/
+/*}*/
+
+/*.MyPage-U ul li button:hover {*/
+/*    background-color: #55569e;*/
+/*}*/
+/*!*정보수정 버튼*!*/
+
+/*.calender-Header {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    margin-top: 400px;*/
+
+/*}*/

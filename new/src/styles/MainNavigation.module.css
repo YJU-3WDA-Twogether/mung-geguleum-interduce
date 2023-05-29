@@ -1,0 +1,375 @@
+.container {
+    flex: 0 1 auto;
+    position: relative;
+    width: 275px;
+    max-height: 100%;
+}
+
+.container .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    padding: 0 16px;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    border-right: 1px solid #ebebeb;
+}
+
+/* 트위터 로고 */
+.container .wrapper .leftBar__logobox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding-left: 12px;
+    height: 60px;
+}
+
+.container .wrapper .leftBar__logobox .leftBar__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.container .wrapper .leftBar__logobox .leftBar__logo::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: -1;
+    transition: all 0.2s;
+}
+
+.container .wrapper .leftBar__logobox .leftBar__logo svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: #e7e7ef;
+}
+
+.container .wrapper .leftBar__logobox .leftBar__logo:hover::after {
+    background: #ffffff;
+}
+
+/* 리스트 */
+.container .wrapper .leftBar__container {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.leftBar__container ul {
+}
+
+.leftBar__container ul li {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    user-select: none;
+}
+
+.leftBar__container ul li b {
+    font-weight: bold;
+}
+
+.leftBar__container ul li svg {
+    margin-right: 15px;
+    font-size: 24px;
+}
+
+.leftBar__container ul li .leftBar__list {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 50px;
+    padding: 12px;
+    transition: all 0.3s;
+}
+
+.leftBar__container ul li .leftBar__list:hover {
+    background-color: #dfdfea;
+}
+
+/* 트윗하기 */
+.leftBar__nweet {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #fff;
+}
+
+.leftBar__nweet svg {
+    display: none;
+}
+
+.leftBar__nweet > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 12px;
+    min-width: 52px;
+    min-height: 52px;
+    background: #6667ab;
+    box-shadow: 0px 5px 5px #3a3a79;
+    border-radius: 9999px;
+    transition: all 0.2s;
+    user-select: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.leftBar__nweet > div:hover {
+    background: #383985;
+}
+
+/* 유저 정보 */
+.container .leftBar__user {
+    border-radius: 9999px;
+    cursor: pointer;
+    padding: 12px;
+    margin: 12px 0;
+    position: relative;
+}
+
+.container .leftBar__userInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.container .leftBar__user:hover {
+    background-color: #dbdbee;
+}
+
+.container .userInfo__profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .profile__image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.container .leftBar__user .leftBar__userInfo .userInfo__name {
+    margin: 0 12px;
+    overflow: hidden;
+}
+
+.container .leftBar__user p {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.container .leftBar__user .leftBar__userInfo .userInfo__name p:first-child {
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+.container .leftBar__user .leftBar__userInfo .userInfo__name p:last-child {
+    font-size: 12px;
+    color: #474865;
+}
+
+.container .leftBar__user .leftBar__userInfo .userInfo__etc {
+    margin-left: auto;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1264px) {
+    .container {
+        width: 88px;
+    }
+
+    .container .wrapper .leftBar__logobox,
+    .leftBar__container ul li,
+    .leftBar__nweet {
+        justify-content: center;
+    }
+
+    .container .wrapper .leftBar__logobox {
+        padding: 0;
+    }
+
+    .leftBar__container ul li {
+    }
+
+    .leftBar__container ul li .leftBar__list span {
+        display: none;
+    }
+
+    .leftBar__container ul li svg {
+        margin-right: 0;
+    }
+
+    .leftBar__nweet span {
+        display: none;
+    }
+
+    .leftBar__nweet svg {
+        display: block;
+    }
+
+    .container .leftBar__user {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container .leftBar__user:hover {
+        background-color: transparent;
+    }
+
+    .container .leftBar__userInfo {
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 52px;
+        height: 52px;
+        padding: 12px;
+    }
+
+    .container .leftBar__userInfo:hover {
+        background-color: #dddddd;
+    }
+
+    .userInfo__name,
+    .userInfo__etc {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 68px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        position: fixed;
+        overflow: hidden;
+        width: 100vw;
+        height: 54px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        border-top: 1px solid #ebebeb;
+    }
+
+    .container .wrapper {
+        position: relative;
+        padding: 0;
+    }
+
+    .container .wrapper .leftBar__category {
+        position: relative;
+    }
+
+    .container .wrapper .leftBar__category .leftBar__logobox,
+    .container .wrapper .leftBar__category .leftBar__nweet,
+    .container .wrapper .leftBar__user {
+        display: none;
+    }
+
+    .container .wrapper .leftBar__category .leftBar__container {
+        margin: 0;
+        width: 100vw;
+        height: 53px;
+    }
+
+    .container .wrapper .leftBar__category .leftBar__container ul {
+        display: flex;
+        height: 100%;
+    }
+
+    .container .wrapper .leftBar__category .leftBar__container ul li {
+        flex: 1 1 auto;
+    }
+
+    .container
+    .wrapper
+    .leftBar__category
+    .leftBar__container
+    ul
+    li
+    .leftBar__list {
+        padding: 8px;
+    }
+
+    .container
+    .wrapper
+    .leftBar__category
+    .leftBar__container
+    ul
+    li:nth-child(6) {
+        display: none;
+    }
+
+    .container
+    .wrapper
+    .leftBar__category
+    .leftBar__container
+    ul
+    li:nth-child(6)
+    svg {
+        display: none;
+    }
+
+    .container
+    .wrapper
+    .leftBar__category
+    .leftBar__container
+    ul
+    li:nth-child(6)
+    .leftBar__list {
+        padding: 0;
+    }
+
+    /* 프로필 아이콘 */
+    .container
+    .wrapper
+    .leftBar__category
+    .leftBar__container
+    ul
+    li:nth-child(6)
+    .leftBar__list
+    .userInfo__profileHidden
+    .userInfo__profile {
+        width: 40px;
+        height: 40px;
+    }
+
+    .container
+    .wrapper
+    .leftBar__category
+    .leftBar__container
+    ul
+    li:nth-child(6)
+    .leftBar__list
+    .userInfo__profileHidden
+    .userInfo__profile
+    .profile__image {
+        width: 30px;
+        height: 30px;
+    }
+}
