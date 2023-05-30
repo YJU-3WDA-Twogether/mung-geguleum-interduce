@@ -64,34 +64,7 @@ const NextArrow = (props) => {
 };
 
 const PostView = ({ selectedPost, handlePostClick }) => {
-    const [posts, setPosts] = useState([
-        {
-            pno: 1,
-            title: "첫 번째 게시글",
-            uid: "user1",
-            uno: 1,
-            content: "첫 번째 게시글 내용",
-            file: [
-                {
-                    fno: 2,
-                    fname: "video.mp4",
-                },
-            ],
-        },
-        {
-            pno: 2,
-            title: "두 번째 게시글",
-            uid: "user2",
-            uno: 2,
-            content: "두 번째 게시글 내용",
-            file: [
-                {
-                    fno: 3,
-                    fname: "audio.mp3",
-                },
-            ],
-        },
-    ]);
+    const [posts, setPosts] = useState([]);
     const [fileNum,setFileNum] = useState(0);
     const [showPopup, setShowPopup] = useState(false);
     const [user, setUser] = useState({});
@@ -187,11 +160,11 @@ const PostView = ({ selectedPost, handlePostClick }) => {
                                     <div
                                         className={styled.userInfo__one}
                                     >
-                                        <p>닉네임</p>
+                                        <p>{user.nickname}</p>
                                     </div>
                                     <div className={styled.userInfo__two}>
                                         <p>
-                                            {post.uid}
+                                            @{user.uid}
                                         </p>
                                         <p style={{ margin: "0 4px" }}>·</p>
                                         <p className={styled.nweet__createdAt}>
@@ -202,6 +175,7 @@ const PostView = ({ selectedPost, handlePostClick }) => {
                             </div>
                         </div>
                     <div className={styled.nweet__text}>
+                        <h1>{post.title}</h1>
                         <h4>{post.content}</h4>
                     </div>
                     <div className={styled.nweet__image}>

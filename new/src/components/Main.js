@@ -36,14 +36,17 @@ function Main({isLoggedIn,userObj,handleLogout}) {
 
     return (
         <div className={styled.container}>
-            <PostController
-                PostName={selectedPost}
-                handlePostClick={handlePostClick} // handlePostClick 함수 전달
-                selectedPostUno={selectedPostUno} // selectedPostUno 값을 전달
-                MainClose={MainClose}
-            />
-            <div className={styled.center__container}>
+            <>
                 <MainNavigation onSelectPost={handleSelectPost} />
+            </>
+
+            <div className={styled.center__container}>
+                <PostController
+                    PostName={selectedPost}
+                    handlePostClick={handlePostClick} // handlePostClick 함수 전달
+                    selectedPostUno={selectedPostUno} // selectedPostUno 값을 전달
+                    MainClose={MainClose}
+                />
             </div>
             <div>
                <div> </div>

@@ -39,7 +39,6 @@ const PostView = () => {
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
             setUser(JSON.parse(storedUser));
-            console.log(JSON.parse(storedUser))
         }
     }, []);
     const handleButtonClick = () => {
