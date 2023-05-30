@@ -41,6 +41,7 @@ const AuthForm = ({ newAccount,setUserObj}) => {
                 localStorage.setItem('user', JSON.stringify(response.data));
                 alert('로그인에 성공하였습니다.');
                 setUserObj(response.data); // 로그인 성공 후 App의 상태를 업데이트
+                navigate('/');
             } catch (error) {
                 console.error(error);
                 alert('로그인 중 오류가 발생했습니다.');
@@ -58,6 +59,7 @@ const AuthForm = ({ newAccount,setUserObj}) => {
                         });
                         localStorage.setItem('user', JSON.stringify(loginResponse.data));
                         setUserObj(loginResponse.data);
+                        navigate('/');
                     } catch (error) {
                         console.error(error);
                         alert('로그인 중 오류가 발생했습니다.');
@@ -72,7 +74,6 @@ const AuthForm = ({ newAccount,setUserObj}) => {
                 alert('회원가입 중 오류가 발생했습니다.');
             }
         }
-        navigate('/');
     };
 
     return (
