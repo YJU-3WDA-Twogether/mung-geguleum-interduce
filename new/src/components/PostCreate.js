@@ -4,13 +4,8 @@ import { IoCloseSharp, IoImageOutline } from "react-icons/io5";
 import pfile from "../image/Profile.jpg";
 import styled from "../styles/PostCreate.module.css";
 
-import {
-    CarouselProvider,
-    Slider,
-    Slide,
-    ButtonBack,
-    ButtonNext
-} from 'pure-react-carousel';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 
@@ -140,13 +135,6 @@ const PostCreate = ({pageNum}) => {
         }
     };
     const [select, setSelect] = useState("");
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    };
     return (
         <>
             <div
@@ -190,24 +178,26 @@ const PostCreate = ({pageNum}) => {
                                 (formData.fileList.length > 0 || formData.audioList.length > 0 || formData.videoList.length > 0) &&
                                 <div className={styled.factoryForm__attachment}>
                                     <div className={styled.factoryForm__Image} >
-                                        {
-                                            [
-                                                ...formData.fileList.map((file, index) => ({ type: 'image', file, index })),
-                                                ...formData.audioList.map((file, index) => ({ type: 'audio', file, index })),
-                                                ...formData.videoList.map((file, index) => ({ type: 'video', file, index })),
-                                            ].map(({ type, file, index }) => (
-                                                <div key={index} className={styled.factoryForm__mediaContainer} style={{marginBottom : 5}}>
-                                                    {type === 'image' && <img src={URL.createObjectURL(file.file)} />}
-                                                    {type === 'audio' && <audio src={URL.createObjectURL(file.file)} controls />}
-                                                    {type === 'video' && <video src={URL.createObjectURL(file.file)} controls />}
-                                                    <div
-                                                        className={styled.factoryForm__clear}
-                                                        onClick={() => handleFileDelete(type, index)}>
-                                                        <IoCloseSharp />
+                                        <Carousel showThumbs={false}>
+                                            {
+                                                [
+                                                    ...formData.fileList.map((file, index) => ({ type: 'image', file, index })),
+                                                    ...formData.audioList.map((file, index) => ({ type: 'audio', file, index })),
+                                                    ...formData.videoList.map((file, index) => ({ type: 'video', file, index })),
+                                                ].map(({ type, file, index }) => (
+                                                    <div key={index} className={styled.factoryForm__mediaContainer} style={{marginBottom : 5}}>
+                                                        {type === 'image' && <img src={URL.createObjectURL(file.file)} />}
+                                                        {type === 'audio' && <audio src={URL.createObjectURL(file.file)} controls />}
+                                                        {type === 'video' && <video src={URL.createObjectURL(file.file)} controls />}
+                                                        <div
+                                                            className={styled.factoryForm__clear}
+                                                            onClick={() => handleFileDelete(type, index)}>
+                                                            <IoCloseSharp />
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            ))
-                                        }
+                                                ))
+                                            }
+                                        </Carousel>
                                     </div>
                                 </div>
                             }

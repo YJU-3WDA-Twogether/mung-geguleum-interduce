@@ -9,6 +9,7 @@ import MyPostView from "./MyPostView";
 import {IoArrowBackOutline} from "react-icons/io5";
 import {IoMdExit} from "react-icons/io";
 import {TopCategory} from "../topCatgory/TopCategory";
+import style from "../styles/MyPageBtn.module.css";
 function MyPage({ handlePostClick, selectedPostUno ,MainClose}) {
 
     const [user, setUser] = useState({});
@@ -77,24 +78,36 @@ function MyPage({ handlePostClick, selectedPostUno ,MainClose}) {
                 </div>
 
                 <nav className={styled.categoryList}>
-                    <MyPageBtn
-                        num={1}
-                        text={"내 활동"}
-                        selected={selected}
+                    <div
                         onClick={() => handleClick(1)}
-                    />
-                    <MyPageBtn
-                        num={2}
-                        text={"내 기록"}
-                        selected={selected}
+                        className={`${style.container} ${ style.sizeContainer}`}
+                    >
+                        <div
+                            className={`${style.btnBox} ${selected === 1 && style.selectedBox}`}
+                        >
+                            <p>내 활동</p>
+                        </div>
+                    </div>
+                    <div
                         onClick={() => handleClick(2)}
-                    />
-                    <MyPageBtn
-                        num={3}
-                        text={"내 게시글"}
-                        selected={selected}
+                        className={`${style.container} ${ style.sizeContainer}`}
+                    >
+                        <div
+                            className={`${style.btnBox} ${selected === 2 && style.selectedBox}`}
+                        >
+                            <p>내 기록</p>
+                        </div>
+                    </div>
+                    <div
                         onClick={() => handleClick(3)}
-                    />
+                        className={`${style.container} ${ style.sizeContainer}`}
+                    >
+                        <div
+                            className={`${style.btnBox} ${selected === 3 && style.selectedBox}`}
+                        >
+                            <p>내 게시판</p>
+                        </div>
+                    </div>
                 </nav>
                 {selected === 1 && <MyLog selectedPostUno={selectedPostUno} />}
                 {selected === 2 && <MyPostView />}

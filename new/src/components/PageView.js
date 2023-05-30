@@ -5,7 +5,9 @@ import styled from '../styles/PostView.module.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Accordion from 'react-bootstrap/Accordion';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 import pfile from "../image/Profile.jpg";
 import {FaRegComment, FaRegHeart} from "react-icons/fa";
 import {FiDownload, FiMoreHorizontal} from "react-icons/fi";
@@ -110,34 +112,19 @@ const PostView = ({ selectedPost, handlePostClick }) => {
         fetchPosts();
     }, []);
 
-    const fileUp = () => {
-        setFileNum(fileNum+1);
-        console.log(fileNum)
-    }
-    const fileDown = () => {
-        setFileNum(fileNum-1);
-        console.log(fileNum)
-    }
 
     const handleClick = (uno) => {
         handlePostClick(uno);
+    };
+
+    const handleSlideChange = (currentIndex) => {
+        setFileNum(currentIndex);
     };
 
     const pnoClick = (postId) => {
         setSelectedPostId(postId);
         setClickedPostId(postId);
         setShowPopup(true);
-    };
-
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        prevArrow: <PrevArrow fileDown={fileDown}/>,
-        nextArrow: <NextArrow fileUp={fileUp}/>,
     };
 
     return (
@@ -160,15 +147,15 @@ const PostView = ({ selectedPost, handlePostClick }) => {
                                     <div
                                         className={styled.userInfo__one}
                                     >
-                                        <p>{user.nickname}</p>
+                                        <p>{post.nickname}</p>
                                     </div>
                                     <div className={styled.userInfo__two}>
                                         <p>
-                                            @{user.uid}
+                                            @{post.uid}
                                         </p>
                                         <p style={{ margin: "0 4px" }}>·</p>
                                         <p className={styled.nweet__createdAt}>
-                                            작성 시간
+                                            {post.regDate}
                                         </p>
                                     </div>
                                 </div>
@@ -180,27 +167,36 @@ const PostView = ({ selectedPost, handlePostClick }) => {
                     </div>
                     <div className={styled.nweet__image}>
                         {post.file.length > 0 && (
-                            post.file.map((file) => (
-                                <div key={file.fno}>
-                                    {file.fname.match(/.(jpg|jpeg|png|gif)$/i) ? (
-                                        <img src={`${API_URL}/file/read/${file.fno}`} alt="file"/>
-                                    ) : file.fname.match(/.(mp4|webm)$/i) ? (
-                                        <video controls>
-                                            <source src={`${API_URL}/file/read/${file.fno}`} type={`video/${file.fname.split('.').pop()}`} />
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    ) : file.fname.match(/.(mp3|wav)$/i) ? (
-                                        <audio controls>
-                                            <source src={`${API_URL}/file/read/${file.fno}`} type={`audio/${file.fname.split('.').pop()}`} />
-                                            Your browser does not support the audio tag.
-                                        </audio>
-                                    ) : (
-                                        <div className="file-wrap">
-                                            {file.fname}
-                                        </div>
-                                    )}
-                                </div>
-                            ))
+                            <Carousel
+                                showThumbs={false}
+                                onChange={handleSlideChange}
+                            >
+                                {post.file.map((file) => (
+                                    <div key={file.fno}>
+                                        {file.fname.match(/.(jpg|jpeg|png|gif)$/i) ? (
+                                            <img src={`${API_URL}/file/read/${file.fno}`} alt="file" />
+                                        ) : file.fname.match(/.(mp4|webm)$/i) ? (
+                                            <video controls>
+                                                <source
+                                                    src={`${API_URL}/file/read/${file.fno}`}
+                                                    type={`video/${file.fname.split('.').pop()}`}
+                                                />
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        ) : file.fname.match(/.(mp3|wav)$/i) ? (
+                                            <audio controls>
+                                                <source
+                                                    src={`${API_URL}/file/read/${file.fno}`}
+                                                    type={`audio/${file.fname.split('.').pop()}`}
+                                                />
+                                                Your browser does not support the audio tag.
+                                            </audio>
+                                        ) : (
+                                            <div className="file-wrap">{file.fname}</div>
+                                        )}
+                                    </div>
+                                ))}
+                            </Carousel>
                         )}
                     </div>
                     <nav className={styled.nweet__actions}>
@@ -229,8 +225,8 @@ const PostView = ({ selectedPost, handlePostClick }) => {
                         <div
                             className={`${styled.actionBox}`}
                         >
-                            <div className={styled.actions__icon} >
-                                <FiDownload />
+                            <div className={styled.actions__icon}>
+                                <FiDownload  onClick={() => downloadFile(post.file[fileNum])} />
                             </div>
                             <div className={styled.actions__text}>
                                 <p>

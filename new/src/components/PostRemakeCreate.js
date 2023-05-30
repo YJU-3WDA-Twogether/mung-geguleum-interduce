@@ -2,6 +2,11 @@ import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import RemakeTegModal from "../modal/RemakeTegModal";
+import styled from "../styles/PostCreate.module.css";
+import pfile from "../image/Profile.jpg";
+import {Carousel} from "react-responsive-carousel";
+import {IoCloseSharp, IoImageOutline} from "react-icons/io5";
+import {VscGitPullRequestCreate} from "react-icons/vsc";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -148,55 +153,114 @@ const PostRemakeCreate = () => {
             alert('게시글 작성 중 오류가 발생했습니다.');
         }
     };
+    const [select, setSelect] = useState("");
     return (
-        <div className="Remake create-container">
-            <h2>재창작</h2>
-            <form  encType="multipart/form-data" onSubmit={handleSubmit}>
-                <div>
-                    <input
-                        type="text"
-                        name="title"
-                        placeholder="제목"
-                        value={formData.title}
-                        onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-                    />
-                </div>
-                {/* 재창작 태그 선택 버튼 */}
-                <button type="button" className="btn-open" onClick={handleRemakeTagClick}>
-                    재창작 태그
-                </button>
-                <RemakeTegModal showPopup={showPopup} setShowPopup={setShowPopup} onSelectPosts={handleSelectPosts} />
-                {/* ... */}
-                <div>
-                        <textarea
-                            name="content"
-                            placeholder="내용"
-                            value={formData.content}
-                            onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-                            rows="10"
-                            cols="30"
-                        ></textarea>
-                </div>
-                <div>
-                    <input type="file" accept="image/*, audio/*, video/*" onChange={handleFileChange} />
-                </div>
-                <div>
-                    {[
-                        ...formData.fileList.map((file, index) => ({ type: 'image', file, index })),
-                        ...formData.audioList.map((file, index) => ({ type: 'audio', file, index })),
-                        ...formData.videoList.map((file, index) => ({ type: 'video', file, index })),
-                    ].map(({ type, file, index }) => (
-                        <div key={index}>
-                            {type === 'image' && <img src={URL.createObjectURL(file.file)} />}
-                            {type === 'audio' && <audio src={URL.createObjectURL(file.file)} controls />}
-                            {type === 'video' && <video src={URL.createObjectURL(file.file)} controls />}
-                            <button type="button" onClick={() => handleFileDelete(type, index)}>X</button>
+
+        <>
+            <div
+                className={`${styled.factoryForm} ${styled.modalBorder}`}
+            >
+                <div className={styled.factoryInput__container}>
+                    <div className={styled.nweet__profile}>
+                        <img
+                            src={pfile} /* 이미지 주소 추가 */
+                            alt="profileImg"
+                            className={styled.profile__image}
+                        />
+                    </div>
+                    <form  className={styled.factoryInput} onSubmit={handleSubmit} encType="multipart/form-data">
+                        <div
+                            className={`${styled.factoryForm__content} ${
+                                select === "text" && styled.focus
+                            }`}
+                        >
+                            <input
+                                spellCheck="false"
+                                className={styled.factoryInput__title}
+                                type="text"
+                                name="title"
+                                placeholder="제목"
+                                value={formData.title}
+                                onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
+                            />
+                            <textarea
+                                spellCheck="false"
+                                className={styled.factoryInput__input}
+                                name="content"
+                                placeholder="어떤걸 창작 하셨나요?"
+                                value={formData.content}
+                                onFocus={() => setSelect("text")}
+                                onBlur={() => setSelect("")}
+                                onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
+                                maxLength={280}
+                            ></textarea>
+                            {
+                                (formData.fileList.length > 0 || formData.audioList.length > 0 || formData.videoList.length > 0) &&
+                                <div className={styled.factoryForm__attachment}>
+                                    <div className={styled.factoryForm__Image} >
+                                        <Carousel showThumbs={false}>
+                                            {
+                                                [
+                                                    ...formData.fileList.map((file, index) => ({ type: 'image', file, index })),
+                                                    ...formData.audioList.map((file, index) => ({ type: 'audio', file, index })),
+                                                    ...formData.videoList.map((file, index) => ({ type: 'video', file, index })),
+                                                ].map(({ type, file, index }) => (
+                                                    <div key={index} className={styled.factoryForm__mediaContainer} style={{marginBottom : 5}}>
+                                                        {type === 'image' && <img src={URL.createObjectURL(file.file)} />}
+                                                        {type === 'audio' && <audio src={URL.createObjectURL(file.file)} controls />}
+                                                        {type === 'video' && <video src={URL.createObjectURL(file.file)} controls />}
+                                                        <div
+                                                            className={styled.factoryForm__clear}
+                                                            onClick={() => handleFileDelete(type, index)}>
+                                                            <IoCloseSharp />
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            }
+                                        </Carousel>
+                                    </div>
+                                </div>
+                            }
                         </div>
-                    ))}
+                        <div className={styled.factoryInput__add}>
+                            <div className={styled.factoryInput__iconBox}>
+                                <label
+                                    htmlFor="attach-file"
+                                    className={styled.factoryInput__label}
+                                >
+                                    <div className={styled.factoryInput__icon}
+                                         style={{marginRight:25}}
+                                    >
+                                        <IoImageOutline />
+                                    </div>
+                                </label>
+                                <input
+                                    id="attach-file" type="file" accept="image/*, audio/*, video/*" onChange={handleFileChange}
+                                />
+                                <label
+                                    htmlFor="attach-file"
+                                    className={styled.factoryInput__label}
+                                >
+                                    <div className={styled.factoryInput__icon}>
+                                        <VscGitPullRequestCreate onClick={handleRemakeTagClick}/>
+                                    </div>
+                                </label>
+                            </div>
+                            <input
+                                type="submit"
+                                value="작성하기"
+                                className={styled.factoryInput__arrow}
+                                disabled={formData.content === "" && formData.title === ""}
+                            />
+                        </div>
+                    </form>
                 </div>
-                <button type="submit">작성하기</button>
-            </form>
-        </div>
+            </div>
+            {/* 재창작 태그 선택 버튼 */}
+
+            {/* ... */}
+            <RemakeTegModal showPopup={showPopup} setShowPopup={setShowPopup} onSelectPosts={handleSelectPosts} />
+        </>
     );
 };
 

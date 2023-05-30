@@ -1,3 +1,21 @@
+.control-prev {
+    /* 이전 버튼 스타일 변경 */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #000;
+    opacity: 0.8;
+}
+
+.control-next {
+    /* 다음 버튼 스타일 변경 */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #000;
+    opacity: 0.8;
+}
+
 .nweet {
     background: #fff;
     position: relative;
