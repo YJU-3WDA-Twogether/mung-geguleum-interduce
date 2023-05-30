@@ -23,16 +23,18 @@ function MyPage({ handlePostClick, selectedPostUno ,MainClose}) {
     }, []);
 
     const handleClick = (n) => {
-        setSelected(n); // Update the selected value
-        console.log(selected)
+        setSelected(n, () => {
+            console.log(selected);
+        });
     };
+
 
     return (
         <section className={styled.container}>
             <div className={styled.main__container}>
 
                 <TopCategory
-                    text={'유저아이디'}
+                    text={user.uid}
                     iconName={<IoArrowBackOutline />}
                     iconName2={<IoMdExit />}
                     MainClose={MainClose}

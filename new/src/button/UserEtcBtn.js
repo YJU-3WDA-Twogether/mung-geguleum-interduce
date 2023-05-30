@@ -3,8 +3,19 @@ import { IoMdExit } from "react-icons/io";
 import { GoTriangleDown } from "react-icons/go";
 import pfile from "../image/Profile.jpg";
 import styled from "../styles/UserEtcBtn.module.css";
+import {useEffect, useState} from "react";
 
 const UserEtcBtn = ({ creatorInfo, userEtc, onLogOutClick }) => {
+
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+            console.log(JSON.parse(storedUser))
+        }
+    }, []);
+
     return (
         <div className={styled.container__box}>
             <div className={styled.container}>
@@ -18,8 +29,8 @@ const UserEtcBtn = ({ creatorInfo, userEtc, onLogOutClick }) => {
                             />
                         </div>
                         <div className={styled.userInfo__name}>
-                            <p>닉네임</p>
-                            <p>@아이디</p>
+                            <p>{user.nickname}</p>
+                            <p>@{user.uid}</p>
                         </div>
                         <div className={styled.userInfo__etc}>
                             <BiCheck />

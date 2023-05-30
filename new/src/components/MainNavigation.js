@@ -15,6 +15,16 @@ function MainNavigation({ onSelectPost, MainClose }) {
     const userEtcRef = useRef();
     const navigate  = useNavigate();
 
+    const [user, setUser] = useState({});
+
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+    }, []);
+
     const { nweetEtc: userEtc, setNweetEtc: setUserEtc } =
         useNweetEctModalClick(userEtcRef);
     const toggleUserEtc = () => {
@@ -24,7 +34,7 @@ function MainNavigation({ onSelectPost, MainClose }) {
         const ok = window.confirm("로그아웃 하시겠어요?");
         if (ok) {
             localStorage.clear();
-            // setUser({});
+            setUser({});
             navigate("/auth");
         }
     };
@@ -109,8 +119,8 @@ function MainNavigation({ onSelectPost, MainClose }) {
                                 />
                             </div>
                             <div className={styled.userInfo__name}>
-                                <p>홍홍</p>
-                                <p>@hong123</p>
+                                <p>{user.nickname}</p>
+                                <p>@{user.uid}</p>
                             </div>
                             <div className={styled.userInfo__etc}>
                                 <FiMoreHorizontal/>

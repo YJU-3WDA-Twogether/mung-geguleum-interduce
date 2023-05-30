@@ -17,7 +17,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 const API_URL = process.env.REACT_APP_API_URL;
 
 const PostCreate = ({pageNum}) => {
-    const [user, setUser] = useState({});
+
     const [formData, setFormData] = useState({
         title: '',
         content: '',    
@@ -25,7 +25,14 @@ const PostCreate = ({pageNum}) => {
         audioList: [],
         videoList: [],
     });
-
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+            console.log(JSON.parse(storedUser))
+        }
+    }, []);
 
     const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20MB
     const handleFileChange = (e) => {
@@ -153,7 +160,7 @@ const PostCreate = ({pageNum}) => {
                                 className={styled.profile__image}
                             />
                     </div>
-                    <form  className={styled.factoryInput}>
+                    <form  className={styled.factoryInput} onSubmit={handleSubmit} encType="multipart/form-data">
                         <div
                             className={`${styled.factoryForm__content} ${
                                 select === "text" && styled.focus
@@ -219,12 +226,11 @@ const PostCreate = ({pageNum}) => {
                                     id="attach-file" type="file" accept="image/*, audio/*, video/*" onChange={handleFileChange}
                                 />
                             </div>
-
                             <input
                                 type="submit"
                                 value="작성하기"
                                 className={styled.factoryInput__arrow}
-                                disabled={formData.content === "" }
+                                disabled={formData.content === "" && formData.title === ""}
                             />
                         </div>
                     </form>
