@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Accordion from 'react-bootstrap/Accordion';
 
 
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 const PrevArrow = (props) => {
