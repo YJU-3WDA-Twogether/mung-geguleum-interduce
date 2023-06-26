@@ -2,9 +2,11 @@
 
 # 🤗 WELCOME!
 
+> <h4>　<br>창작을 자유롭게, 뭉게구름<br>　
+
 영진전문대학교 컴퓨터정보계열 웹데이터베이스반 2조 **"투게더(TwoGether)"** 캡스톤디자인
 
-**"뭉게구름"** 프로젝트의 Front-end 리포지토리입니다. 반가워요!👋
+**"뭉게구름"** 프로젝트의 소개 리포지토리입니다. 반가워요!👋
 
 
 ## 👨‍👩‍👦‍👦 누가 프로젝트에 참여했나요?
@@ -12,7 +14,7 @@
 <table>
     <tr> 
 <td align="center"><a href="https://github.com/sila0319"><img src="https://avatars.githubusercontent.com/u/102634882?v=4"
- width="100px;" alt=""/><br /><sub><b>유원규</b></sub></a><br /><a href="https://github.com/sila0319" title="Code">🏠</a></td>
+ width="100px;" alt=""/><br /><sub><b>👑 유원규 👑</b></sub></a><br /><a href="https://github.com/sila0319" title="Code">🏠</a></td>
  
 <td align="center"><a href="https://github.com/KIM-SeonMi"><img src="https://avatars.githubusercontent.com/u/103207266?v=4"
  width="100px;" alt=""/><br /><sub><b>김선미</b></sub></a><br /><a href="https://github.com/KIM-SeonMi" title="Code">🏠</a></td>
@@ -20,9 +22,7 @@
 <td align="center"><a href="https://github.com/takyeoung"><img src="https://avatars.githubusercontent.com/u/103091272?v=4"
 width="100px;" alt=""/><br /><sub><b>김탁영</b></sub></a><br /><a href="https://github.com/takyeoung" title="Code">🏠</a></td>
 
-</tr><tr>
-
- <td align="center"><a href="https://github.com/HONGBOY1"><img src="https://avatars.githubusercontent.com/u/103193673?v=4"
+<td align="center"><a href="https://github.com/HONGBOY1"><img src="https://avatars.githubusercontent.com/u/103193673?v=4"
 width="100px;" alt=""/><br /><sub><b>박준홍</b></sub></a><br /><a href="https://github.com/HONGBOY1" title="Code">🏠</a></td>
 
 <td align="center"><a href="https://github.com/jinDol99"><img src="https://avatars.githubusercontent.com/u/103583674?v=4"
@@ -34,126 +34,66 @@ width="100px;" alt=""/><br /><sub><b>전종찬</b></sub></a><br /><a href="https
 </tr>
 </table>
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
 
 ## 😏 이 프로젝트는 왜 만들었죠?
-이 프로젝트는 연주자, 음악가, 영상편집자 등의 아마추어 창작자들이 자유롭게 창작물을 공유하기 위해 만들어졌어요.
+이 프로젝트는 연주자, 음악가, 영상편집자 등의 아마추어 창작자들이 자유롭게 창작물을 공유하기 위해 만들어졌습니다.
 
-자유롭게 창작물을 공유하는것과 동시에 남의 창작물을 가져와 새로운 창작물을 만드는. 즉, 리믹스, 매시업과 같은 **"재창작"을 위한 새로운 커뮤니티 장을 만들기 위해** 이 프로젝트를 시작했습니다.
+자유롭게 창작물을 공유하는것과 동시에 남의 창작물을 가져와 새로운 창작물을 만드는. 즉, 리믹스 또는 매시업과 같은 **"재창작"을 위한 새로운 커뮤니티 장을 만들기 위해** 이 프로젝트를 시작했습니다.
 
 ## 🤔 관련 서비스는 이미 있지 않나요?
+실제로 현재 많은 이용자가 사용중인 "유튜브"의 "리믹스" 기능 뿐만 아니라 여러 창작곡 커뮤니티가 존재합니다.
+또한 하루에 수십개씩 새로운 창작물이 업로드될 정도로 활성화 되어있는 웹사이트로 많았습니다.
 
-실제로 현재 많은 이용자가 사용중인 "유튜브"의 "리믹스" 기능.
-다만, 조사 결과...
+하지만 조사 결과, 저작권에 자유로우면서도 오직 "재창작"을 위한 인프라가 되어있는 커뮤니티는 존재하지 않았습니다.
+따라서 저희는 위와 같은 수요와 기능을 살리기 위해 개발하게 되었습니다.
 
-**[ 작성중 ]**
+<table>
+<tr>
 
-## 주요 기능
+<td><img src="https://sugared-forgery-d13.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F104f3eaa-4ff0-4739-bb15-19f50f759c48%2FUntitled.png?id=36a2befa-199a-41cb-86a4-629a168f3baf&table=block&spaceId=da8f90e8-1950-4576-9f13-ede50a2d2847&width=1250&userId=&cache=v2"alt=""/></td>
+<td><img src="https://sugared-forgery-d13.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fec036945-0f50-40ef-94a0-07ae291f33c0%2FUntitled.png?id=30294146-01ad-4b17-9ced-50217e33be05&table=block&spaceId=da8f90e8-1950-4576-9f13-ede50a2d2847&width=1150&userId=&cache=v2"alt=""/></td>
+</tr>
+<tr>
+<td><a href="https://hiphople.com/workroom" title="Code">음악 커뮤니티: 힙합엘이(HIPHOPLE)</a></td>
+<td><a href="https://cuoworld.com/" title="Code">음악 정보 SNS: 큐오월드</a></td>
+</tr>
+<tr>
+<td>“워크룸” 게시판에서 사용자들끼리 창작곡을 업로드하고 공유.<br>재창작을 하더라도 제공하는 관련 기능은 없음</td>
+<td>큐오넷(CUONET)에서 파생된 웹사이트로, 페이스북과 유사한 형식으로 음악 관련 주제를 소통할 수 있는 공간.<br>음악 공유는 부모 웹사이트인 큐오넷에서 할 수 있으며, 재창작 관련된 내용은 없음</td>
+</tr>
 
-프로젝트의 주요 기능들을 나열하세요. 사용자가 프로젝트를 어떻게 활용할 수 있는지 간략하게 설명합니다.
+<tr >
+<td colspan="2"><img src="https://sugared-forgery-d13.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3084b13e-7a3b-49b1-9388-6a82c617395b%2FUntitled.png?id=17b305cd-ca91-4942-b493-c4dd292cc842&table=block&spaceId=da8f90e8-1950-4576-9f13-ede50a2d2847&width=2000&userId=&cache=v2"alt=""/></td>
+</tr>
+<tr>
+<td colspan="2"><a href="https://hiphople.com/workroom" title="Code">유튜브</a></td>
+</tr>
+<tr>
+<td colspan="2">유튜브의 재창작 콘텐츠를 확인해보면 최근에도 많은 영상이 올라오며 높은 조회수도 기록된 것을 확인할 수 있음</td>
+</tr>
+</table>
 
-## 사용 기술
+## 😮 그럼 이 프로젝트의 주요 기능은?
+<img src="https://sugared-forgery-d13.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F68be1cff-0b34-470a-8470-cda9f7c00e50%2FUntitled.png?id=dfae07ac-550a-4f56-9418-ac6c3e1fb9e3&table=block&spaceId=da8f90e8-1950-4576-9f13-ede50a2d2847&width=2000&userId=&cache=v2">
 
-프로젝트에서 사용된 주요 기술들을 나열하세요. 예를 들어 프로그래밍 언어, 프레임워크, 라이브러리, 데이터베이스 등을 포함합니다.
+###  📅 로그
+일명 "잔디"라고 불리는 깃허브의 컨트리뷰션 그래프(Contribution Graph) 또는 인스타그램의 좋아요 기록 처럼, 서비스 내부에서 일어나는 모든 활동을 서버에 기록합니다.
+그 후, 기록된 데이터를 통해 불법복제 방지 같은 여러 방면으로 활용할 수 있습니다.
 
-## 설치 및 실행 방법
+### 🎨 재창작
+저희 프로젝트의 메인 기능입니다.
+타인의 창작물을 다운로드 받아 자신의 창작요소를 덧붙여 또 다른 새로운 창작물을 게시하고 공유할 수 있습니다.
 
-프로젝트를 실행하기 위해 필요한 설치 및 설정 방법을 자세히 설명하세요. 사용자가 프로젝트를 로컬 환경에서 실행하고 테스트할 수 있도록 해야 합니다. 필요한 의존성 패키지를 설치하는 방법 등을 포함합니다.
+### 👀 데이터 시각화
+위 두 가지 기능을 결합하여 게시글들이 어떻게 재창작이 이루어졌는지 한 눈에 파악할 수 있습니다.
+자기 자신의 창작물 뿐만 아니라 웹 사이트의 모든 창작물을 확인 가능합니다.
 
-## 기여 방법
+## 😃 멋지네요!
+프로젝트에 대한 더 자세한 내용은 각각의 리포지토리 페이지를 방문해보세요.
+사용 기술, 로직, 개발 진척사항 등 더욱 많은 정보를 확인할 수 있습니다!
 
-다른 개발자들이 프로젝트에 기여할 수 있는 방법을 안내하세요. 예를 들어 버그 리포트, 기능 제안, 코드 개선 등을 포함할 수 있습니다.
+<hr>
 
-## 라이선스
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FYJU-3WDA-Twogether&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-프로젝트의 라이선스를 명시하세요. 저작권 정보와 라이선스 조건을 기술해야 합니다.
-
-## 연락처 정보
-
-프로젝트 관련 문의나 기타 연락처 정보를 제공하세요. 팀 구성원들의 이메일 주소나 소셜 미디어 계정 등을 포함할 수 있습니다.
-
-## 감사의 글
-
-필요에 따라 프로젝트에 기여한 사람들에 대한 감사의 글을 작성하세요.
-
----
-이 템플릿은 프로젝트 README 파일 작성을 돕기 위한 예시입니다. 필요에 따라 내용을 추가하거나 수정하여 사용하시면 됩니다.
-
-# 프로젝트명
-> 간략한 프로젝트 소개 문구를 작성합니다.
-
-
-
-한 두 문단으로 프로젝트 소개 글을 작성합니다.
-
-![](../header.png)
-
-## 설치 방법
-
-OS X & 리눅스:
-
-```sh
-npm install my-crazy-module --save
-```
-
-윈도우:
-
-```sh
-edit autoexec.bat
-```
-
-## 사용 예제
-
-스크린 샷과 코드 예제를 통해 사용 방법을 자세히 설명합니다.
-
-_더 많은 예제와 사용법은 [Wiki][wiki]를 참고하세요._
-
-## 개발 환경 설정
-
-모든 개발 의존성 설치 방법과 자동 테스트 슈트 실행 방법을 운영체제 별로 작성합니다.
-
-```sh
-make install
-npm test
-```
-
-## 업데이트 내역
-
-* 0.2.1
-    * 수정: 문서 업데이트 (모듈 코드 동일)
-* 0.2.0
-    * 수정: `setDefaultXYZ()` 메서드 제거
-    * 추가: `init()` 메서드 추가
-* 0.1.1
-    * 버그 수정: `baz()` 메서드 호출 시 부팅되지 않는 현상 (@컨트리뷰터 감사합니다!)
-* 0.1.0
-    * 첫 출시
-    * 수정: `foo()` 메서드 네이밍을 `bar()`로 수정
-* 0.0.1
-    * 작업 진행 중
-
-## 정보
-
-이름 – [@트위터 주소](https://twitter.com/dbader_org) – 이메일주소@example.com
-
-XYZ 라이센스를 준수하며 ``LICENSE``에서 자세한 정보를 확인할 수 있습니다.
-
-[https://github.com/yourname/github-link](https://github.com/dbader/)
-
-## 기여 방법
-
-1. (<https://github.com/yourname/yourproject/fork>)을 포크합니다.
-2. (`git checkout -b feature/fooBar`) 명령어로 새 브랜치를 만드세요.
-3. (`git commit -am 'Add some fooBar'`) 명령어로 커밋하세요.
-4. (`git push origin feature/fooBar`) 명령어로 브랜치에 푸시하세요. 
-5. 풀리퀘스트를 보내주세요.
-
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=6667ab&height=200&section=footer)
