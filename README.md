@@ -91,7 +91,9 @@ width="100px;" alt=""/><br /><sub><b>전종찬</b></sub></a><br /><a href="https
 ## 😃 멋지네요!
 프로젝트에 대한 더 자세한 내용은 각각의 리포지토리 페이지를 방문해보세요.
 사용 기술, 로직, 개발 진척사항 등 더욱 많은 정보를 확인할 수 있습니다!
-
+- **프론트엔드 페이지**: https://github.com/YJU-3WDA-Twogether/mung-geguleum-FE
+- **백엔드 페이지**: https://github.com/YJU-3WDA-Twogether/mung-geguleum-backend
+- **모바일 페이지**: https://github.com/YJU-3WDA-Twogether/mung-geguleum-mobile
 <hr>
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FYJU-3WDA-Twogether&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
